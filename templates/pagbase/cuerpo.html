@@ -1,4 +1,54 @@
 {% extends 'pagbase/registro.html' %}
 {% block contenido2 %}
-   <h1>ahora si</h1>
+   <!--Agregar-->
+   <main id ="pagina-agregar">
+      <section class="datos-producto">
+          <img class="imagen-producto" src="https://scontent-scl2-1.cdninstagram.com/v/t51.2885-15/e35/65110435_471970740301919_1632220654426317265_n.jpg?_nc_ht=scontent-scl2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=ELX6oeXG8jkAX8yUTpS&_nc_tp=18&oh=6077b8440fe942bfc1bd762e09159b9f&oe=5F92B5EC"/>
+          <form onsubmit="" class="formulario" id="formulario">
+              <div>
+                  <h2>Ingrese link de la imagen</h2>
+                  <input class="input-text" type="text" name="imagen" required>
+              </div>
+               <div>
+                  <h2>Categoria</h2>
+                  <select name="categorias" id="categorias">
+                      <!--<option value="0">Seleccionar</option>--> 
+                      <option value="0">Seleccionar</option>
+                      <option value="tecnologia"> Tecnologia</option>
+                      <option value="moda"> moda</option>
+                  </select>
+              </div>
+              <div>
+                  <h2>Marca</h2>
+                  <input class="input-text" type="text" name="marca" minlength="2" maxlength="30" required> 
+              </div>
+              <div>
+                  <h2>Modelo</h2>
+                  <input class="input-text" type="text" name="modelo" minlength="2" required>
+              </div>
+              <div>
+                  <h2>Dimensiones</h2>
+                  <input class="input-text" type="text" name="dimensiones" minlength="3" required>
+              </div>
+              <div>
+                  <h2>Peso (en kg)</h2>
+                  <input class="input-text" type="number" name="peso" minlength="1" step="0.01" min="0" required>
+              </div>
+              <div>
+                  <h2>Precio</h2>
+                  <input class="input-text" step="10" type="number" name="precio" minlength="3" maxlength="9" min="990" max="9999999" required>
+              </div>
+              <div>
+                  <h2>Características del producto</h2>
+                  <input class="input-desc" type="text" name="caracteristicas" minlength="10" required/>
+              </div>
+              <div>
+                  <input  type="submit" value="Agregar" >
+              </div>
+          </form>
+      </section>
+      <section id="lista">
+          
+      </section>
+  </main>
 {% endblock %}

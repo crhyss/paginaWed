@@ -5,6 +5,8 @@
 }
 body{
     background-image: url(https://tunuevavitrina.cl/wp-content/uploads/2018/07/fondo-slide-1_2_0.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed
 }
 /*barra superior*/
 #logoWeb{
@@ -20,7 +22,7 @@ body{
 .flex{
     display: flex;
     flex-direction: row;
-    height: 52px;
+    height: 50px;
     align-items: center;
     justify-content: space-around;
 }
@@ -51,17 +53,20 @@ body{
 ::-webkit-input-placeholder { 
     color:black !important; 
 }
-#menu{
-    width: 15%;
+#dropdown{
+    top: 100px !important;
 }
+
 #margen {
-    margin-left: 40px !important;
-    margin-right: 5px !important;
+    position: static;
+    margin-left: 20px !important;
+    margin-right: 10px !important;
     background-color: transparent;
     color: black;
     box-shadow: none;
     padding: 0px !important;
 }
+
 #buscar{
     width: 25%;
 }
@@ -182,10 +187,189 @@ body{
 }
 
 #imperdibles{
-    margin: 20px !important;
+    margin: 10px !important;
+
 }
 #imperdibles-mobile{
     display: none;
 }
 
 
+/*Media query para la versión móvil*/
+@media screen and (min-width: 0px) and (max-width: 850px){
+    #barra-superior {
+        display: none !important;
+    }
+    #dropdown{
+        top: 50px !important;
+    }
+    #logoWeb{
+        height: 50px;
+        width: auto;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    .header{
+        height: 65px;
+    }
+
+    .ayuda{
+        display: none;
+    }
+    .compras{
+        display: none;
+    }
+    #informaciones{
+        display: none;
+    }
+    #parrafo-categorias{
+        display: none;
+    }
+    #seccion-categorias{
+        width: 15%;
+        padding-left: 0;
+    }
+
+    #margen{
+        display: block;
+    }
+
+    #imagen-movil{
+        display: flex;
+        width: 20%;
+        height: 65px;
+    }
+    #categorias{
+        width: 35%;
+        height: 65px;
+    }
+    #seccion-opciones{
+        width: 50%;
+        align-items: center;
+    }
+    #seccion-input{
+        height: 100%;
+        align-items: center;
+        width: 20%;
+    }
+    #span-imagen{
+        display: flex;
+    }
+    #imperdibles{
+        display: none;
+    }
+    #imperdibles-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    #imperdibles-mobile article{
+        border: 1px solid gray;
+        height: 150px;
+        width: 90%;
+    }
+    #imperdibles-mobile article:nth-child(n){
+        background-image: url("https://i.pinimg.com/564x/09/a2/d6/09a2d6bd7deed65085e3d808ea45c458.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(2){
+        background-image: url("https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(3){
+        background-image: url("https://i.pinimg.com/236x/4d/d0/3c/4dd03cd379a01ceaa470982645fe802e.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(4){
+        background-image: url("https://i.pinimg.com/564x/f8/ff/2a/f8ff2aecc6e4cc0e421542285e9c9786.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(5){
+        background-image: url("https://instagram.fscl21-1.fna.fbcdn.net/v/t51.2885-15/e35/119219354_337674640716576_4678914042489978226_n.jpg?_nc_ht=instagram.fscl21-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=x92hJqZ5j90AX-rKqSR&_nc_tp=18&oh=6c44b494687d37473392e4de2a5252a0&oe=5F9A9281");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(6){
+        background-image: url("https://instagram.fscl21-1.fna.fbcdn.net/v/t51.2885-15/e35/28766243_428881824201090_8690163817130229760_n.jpg?_nc_ht=instagram.fscl21-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=21KDsaSPJ0sAX-0yRf3&_nc_tp=18&oh=b1e57a7adcd6774d6eb13c069e0ea139&oe=5F99B4CA");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(7){
+        background-image: url("https://instagram.fscl21-1.fna.fbcdn.net/v/t51.2885-15/e35/27891624_2121319624763504_6666367994530103296_n.jpg?_nc_ht=instagram.fscl21-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=kgRUJ6I2_PAAX8i-jG9&_nc_tp=18&oh=497db5aa46304bebf21466025701ee72&oe=5F998F7F");
+    
+    }
+    #imperdibles-mobile article:nth-child(8){
+        background-image: url("https://instagram.fscl21-1.fna.fbcdn.net/v/t51.2885-15/e35/41794437_334414120645326_8363517802230081687_n.jpg?_nc_ht=instagram.fscl21-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=E-HhWR72bcIAX9LzUyP&_nc_tp=18&oh=859c9df3a13331d0864d9ea8c4d0fb20&oe=5F9950E2");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(9){
+        background-image: url("https://scontent.fscl21-1.fna.fbcdn.net/v/t31.0-8/22256757_704942059700435_8284867455232180785_o.jpg?_nc_cat=108&_nc_sid=cdbe9c&_nc_ohc=xu7ppxW68XkAX_PDxJZ&_nc_ht=scontent.fscl21-1.fna&oh=19474dfe3ec72e387285665974d3ef91&oe=5F961CA9");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(10){
+        background-image: url("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/59a6bc3d5bafe87f0db3d708/gato-atigrado-triste_0.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(11){
+        background-image: url("https://estaticos.muyinteresante.es/media/cache/1000x_thumb/uploads/images/gallery/59a6bc3d5bafe87f0db3d708/gato-gris-maullando.jpg");
+
+    
+    }
+    #imperdibles-mobile article:nth-child(12){
+        background-image: url("https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg");
+
+    }
+        
+    #lista-moda{
+            display: flex;
+            flex-direction: column;
+        }
+        #lista-tecnologia{
+            display: flex;
+            flex-direction: column;
+        }
+        #pagina-tecnologia{
+            justify-content: center;
+        }
+        #pagina-moda{
+            justify-content: center;
+        }
+        #input-eliminar{
+            width: 50%;
+        }
+        #lista-eliminar{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+    
+    /*
+@media screen and (min-width: 0px) and (max-width: 850px){
+    #lista-moda{
+        display: flex;
+        flex-direction: column;
+    }
+    #lista-tecnologia{
+        display: flex;
+        flex-direction: column;
+    }
+    #pagina-tecnologia{
+        justify-content: center;
+    }
+    #pagina-moda{
+        justify-content: center;
+    }
+}
+    */
+}
