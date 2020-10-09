@@ -9,7 +9,8 @@
             <p id="superior" class="espacio">Venta Telefonica</p>
             <p id="superior">Contacto</p>
             <p id="centro">La Tiendita de cristian</p>
-            <picture id="derecha" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg" > </picture>  
+            <a id="derecha" href="{% url 'loby' %}" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
+ 
         </article>
     </section>
     <section id="barra-inferior">
@@ -20,7 +21,7 @@
                     <li><a type="submit" href="#!" class="tecnologia">Tecnologia</a></li>
                     <li><a type="submit" href="#!" class="moda">Moda</a></li>
                     <li><a type="submit" href="#!" class="volver">Pagina principal</a></li>
-                    <li><a type="submit" href="#!" class="agregar">agregar</a></li>
+                    <li><a type="submit" href="{% url 'cuerpo' %}" class="agregar">agregar</a></li>
                     <li><a type="submit" href="#!" class="eliminar">Eliminar</a></li>
                 </ul>
             </article>
@@ -35,7 +36,6 @@
         </article>
     </section>
 
-    </section>
 </header>
 {% endblock %}
 {% block contenido2 %}
