@@ -10,7 +10,7 @@ def paginaprincipal(request):
 def datos(request):
     return render(
         request,
-        'pagbase/registro.html'
+        'pagbase/tecnologia.html'
     )
 def cuerpo(request):
     return render(
