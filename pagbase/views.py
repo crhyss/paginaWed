@@ -1,19 +1,43 @@
 from django.shortcuts import render
 from django.http import HttpResponse as hr
 # Create your views here.
-
+from .models import Producto
+from .forms import ProductoForm
 def paginaprincipal(request):
+    context = {
+        'titulo':'Tiendita del Cris'
+    }
     return render(
         request,
-        'pagbase/ingreso.html'
+        'pagbase/principal.html',
+        context
+    )   
+def agregarProducto(request):
+    context = {
+        'titulo':'Agregar Producto'
+    }    
+    return render(
+        request,
+        'pagbase/agregar.html',
+        context
     )
-def datos(request):
+def modificarProducto(request,id_producto):
+    context = {
+        'titulo':'Modificar Producto'
+    }    
     return render(
         request,
-        'pagbase/tecnologia.html'
+        'pagbase/modificar_t.html',
+        context
     )
-def cuerpo(request):
+def listarProducto(request):
+    productos = Producto.objects.all()
+    context = {
+        'titulo':'Productos',
+        'productos':productos
+    }    
     return render(
         request,
-        'pagbase/cuerpo.html'
+        'pagbase/listarTecnologia.html',
+        context
     )

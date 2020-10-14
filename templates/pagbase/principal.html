@@ -1,5 +1,5 @@
-{% extends 'base/contenido.html' %}
-{% block contenido %}
+{% extends 'base/index.html' %}
+{% block header %}
 <header>
     <picture>
         <img id="logoWeb" src="https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg"> 
@@ -9,7 +9,7 @@
             <p id="superior" class="espacio">Venta Telefonica</p>
             <p id="superior">Contacto</p>
             <p id="centro">La Tiendita de cristian</p>
-            <a id="derecha" href="{% url 'loby' %}" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
+            <a id="derecha" href="" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
  
         </article>
     </section>
@@ -18,10 +18,10 @@
             <article class="flex" id="menu">
                 <p class='dropdown-trigger btn' href='#' data-target='dropdown' id="margen"> <i class="material-icons" >menu</i></p>
                 <ul id='dropdown' class='dropdown-content'>
-                    <li><a type="submit" href="#!" class="tecnologia">Tecnologia</a></li>
+                    <li><a type="submit" href="/principal/listar" class="tecnologia">Tecnologia</a></li>
                     <li><a type="submit" href="#!" class="moda">Moda</a></li>
                     <li><a type="submit" href="#!" class="volver">Pagina principal</a></li>
-                    <li><a type="submit" href="{% url 'cuerpo' %}" class="agregar">agregar</a></li>
+                    <li><a type="submit" href= "/principal/agregar"class="agregar">agregar</a></li>
                     <li><a type="submit" href="#!" class="eliminar">Eliminar</a></li>
                 </ul>
             </article>
@@ -37,8 +37,8 @@
     </section>
 
 </header>
-{% endblock %}
-{% block contenido2 %}
+{% endblock header%}
+{% block main %}
 <main id = "pagina-principal" class="principal">
     <!-- slider de  imagenes-->
     <picture>
@@ -124,4 +124,4 @@
         <article class = "col s3"></article>
     </section>
     </main>
-{% endblock contenido2 %}
+{% endblock main %}

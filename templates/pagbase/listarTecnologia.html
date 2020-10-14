@@ -1,0 +1,43 @@
+{% extends 'base/index.html' %}
+{% block main %}
+    <div class="row">
+        <h1> Productos</h1>
+    </div>
+    <div class="container">
+    {% if productos %}
+        <div class="row">
+            <table>
+                <thead>
+                <tr>
+                    <th>link</th>
+                    <th>nombre</th>
+                    <th>marca</th>
+                    <th>modelo</th>
+                    <th>precio</th>
+                    <th>peso</th>
+                    <th>dimension</th>
+                    <th>detalle</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {%for producto in productos%}
+                        <tr id="{{producto.id}}">
+                            <th>link={{producto.link}}</th>
+                            <th>nombre={{producto.nombre}}</th>
+                            <th>marca={{producto.marca}}</th>
+                            <th>modelo={{producto.modelo}}</th>
+                            <th>precio={{producto.precio}}</th>
+                            <th>peso={{producto.peso}}</th>
+                            <th>dimension={{producto.dimension}}</th>
+                            <th>detalle={{producto.detalle}}</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>Actualmente no hay productos disponibles</p>
+    {% endif %}
+    </div>
+
+{% endblock main %}
