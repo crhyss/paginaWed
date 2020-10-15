@@ -68,6 +68,21 @@ body{
 #imagenbd{
     width: 200px;
 }
+.footerP{
+    background-color: black;
+    color: gray;
+    display: flex;
+    flex-wrap: wrap;
+}
+.fh1,.fh2 {
+    width: 50%;
+    text-align: -webkit-center;
+}
+.fh3{
+    font-size: x-small;
+    width: 100%;
+    text-align: -webkit-center;
+}
 #margen {
     position: static;
     margin-left: 20px;
@@ -89,6 +104,14 @@ body{
 }
 #productos{
     justify-content: center;
+}
+.separador{
+    height: 30px;
+}
+.sep{
+    background-image: url(https://image.freepik.com/vector-gratis/fondo-degradado-tonos-verdes_23-2148373476.jpg);
+    background-size: cover;
+    text-align: -webkit-center;
 }
 #productos article:nth-child(n){
 
@@ -362,7 +385,9 @@ body{
             flex-direction: column;
             align-items: center;
         }
-
+        .sep{
+            display: none;
+        }
 
     
     /*

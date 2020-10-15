@@ -32,10 +32,10 @@
                     <article class="flex" id="menu">
                         <p class='dropdown-trigger btn' href='#' data-target='dropdown' id="margen"> <i class="material-icons" >menu</i></p>
                         <ul id='dropdown' class='dropdown-content'>
-                            <li><a type="submit" href="/principal/listar" class="tecnologia">Tecnologia</a></li>
+                            <li><a type="submit" href="" class="tecnologia">Tecnologia</a></li>
                             <li><a type="submit" href="#!" class="moda">Moda</a></li>
-                            <li><a type="submit" href= "/principal/agregar"class="agregar">agregar</a></li>
-                            <li><a type="submit" href="#!" class="eliminar">Eliminar</a></li>
+                            <li><a type="submit" href= "/principal/agregar"class="agregar">Agregar</a></li>
+                            <li><a type="submit" href="/principal/listar" class="listar">Listar</a></li>
                         </ul>
                     </article>
                     <section class="flex" id="buscar">
@@ -45,10 +45,8 @@
                         <a href="#" id="cuenta" class="compras">Mis Compras</a>
                         <a href="#" id="cuenta" class="ayuda">Ayuda</a>
                         <a href="#" id="cuenta">Bolsas</a>
-                    </article>
                 </article>
             </section>
-        
         </header>
     </header>
 {% endblock header%}
@@ -57,6 +55,11 @@
     </main>  
     <footer>
         {% block footer %}
+            <section class="footerP">
+                <p class="fh1">direccion: Mi Casa #123 San Bernardo</p>
+                <p class="fh2">Fono operador: +56978745627</p>
+                <p class="fh3"> tiendita del cris tiene todos los derechos reservados cuaquier difuncion de su contenido sera sancionado con multa de hasta 5 UTM</p>
+            </section>
         {% endblock footer %}
     </footer>
     {% include "base/js.html" %}
