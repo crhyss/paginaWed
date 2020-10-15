@@ -9,33 +9,39 @@
             <table>
                 <thead>
                 <tr>
-                    <th>link</th>
-                    <th>nombre</th>
-                    <th>marca</th>
-                    <th>modelo</th>
-                    <th>precio</th>
-                    <th>peso</th>
-                    <th>dimension</th>
-                    <th>detalle</th>
+                    <th>Link</th>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Peso</th>
+                    <th>Dimension</th>
+                    <th>Detalle</th>
+                    <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
                     {%for producto in productos%}
                         <tr id="{{producto.id}}">
-                            <th>link={{producto.link}}</th>
-                            <th>nombre={{producto.nombre}}</th>
-                            <th>marca={{producto.marca}}</th>
-                            <th>modelo={{producto.modelo}}</th>
-                            <th>precio={{producto.precio}}</th>
-                            <th>peso={{producto.peso}}</th>
-                            <th>dimension={{producto.dimension}}</th>
-                            <th>detalle={{producto.detalle}}</th>
+                            <td><img id="imagenbd" src="{{producto.link}}" alt=""></td>
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.marca}}</td>
+                            <td>{{producto.modelo}}</td>
+                            <td>${{producto.precio}}</td>
+                            <td>{{producto.peso}}Kg</td>
+                            <td>{{producto.dimension}}</td>
+                            <td>{{producto.detalle}}</td>
+                            <td>
+                                <a href="/principal/modificar/{{producto.id}}" class="btn-floating btn-tiny waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                                <a href="/principal/eliminar/{{producto.id}}" class="btn-floating btn-tiny waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     {% else %}
+        <a href="/principal/agregar">Añadir un producto</a>
         <p>Actualmente no hay productos disponibles</p>
     {% endif %}
     </div>

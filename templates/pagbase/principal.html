@@ -1,43 +1,4 @@
 {% extends 'base/index.html' %}
-{% block header %}
-<header>
-    <picture>
-        <img id="logoWeb" src="https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg"> 
-    </picture>
-    <section  id="barra-superior">
-        <article class="flex">
-            <p id="superior" class="espacio">Venta Telefonica</p>
-            <p id="superior">Contacto</p>
-            <p id="centro">La Tiendita de cristian</p>
-            <a id="derecha" href="" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
- 
-        </article>
-    </section>
-    <section id="barra-inferior">
-        <article class="flex">
-            <article class="flex" id="menu">
-                <p class='dropdown-trigger btn' href='#' data-target='dropdown' id="margen"> <i class="material-icons" >menu</i></p>
-                <ul id='dropdown' class='dropdown-content'>
-                    <li><a type="submit" href="/principal/listar" class="tecnologia">Tecnologia</a></li>
-                    <li><a type="submit" href="#!" class="moda">Moda</a></li>
-                    <li><a type="submit" href="#!" class="volver">Pagina principal</a></li>
-                    <li><a type="submit" href= "/principal/agregar"class="agregar">agregar</a></li>
-                    <li><a type="submit" href="#!" class="eliminar">Eliminar</a></li>
-                </ul>
-            </article>
-            <section class="flex" id="buscar">
-                <input type="search" placeholder="¿Qué buscas?">
-            </section>
-                <a href="#" id="cuenta"><i class="material-icons">perm_identity</i><br>Cuenta</a>
-                <a href="#" id="cuenta" class="compras">Mis Compras</a>
-                <a href="#" id="cuenta" class="ayuda">Ayuda</a>
-                <a href="#" id="cuenta">Bolsas</a>
-            </article>
-        </article>
-    </section>
-
-</header>
-{% endblock header%}
 {% block main %}
 <main id = "pagina-principal" class="principal">
     <!-- slider de  imagenes-->
