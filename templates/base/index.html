@@ -1,68 +1,75 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {% include "base/css.html" %}
     {% block css %}
     {% endblock css %}
     <title>{{titulo}}</title>
 </head>
+
 <body>
-{% block header %}    
+    {% block header %}
     <header>
-        <header>
-            <picture>
-                <a href="/principal/">
-                    <img id="logoWeb"  src="https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg">
-                </a> 
-            </picture>
-            <section  id="barra-superior">
-                <article class="flex">
-                    <p id="superior" class="espacio">Venta Telefonica</p>
-                    <p id="superior">Contacto</p>
-                    <p id="centro">La Tiendita de cristian</p>
-                    <a id="derecha" href="" ><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
-         
-                </article>
+        <picture>
+            <a href="/">
+                <img id="logoWeb" src="https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg">
+            </a>
+        </picture>
+        <section id="barra-superior">
+            <article class="flex">
+                <p id="superior" class="espacio">Venta Telefonica</p>
+                <p id="superior">Contacto</p>
+                <p id="centro">La Tiendita de cristian</p>
+                <a id="derecha" href=""><img src="https://www.falabella.com/a/fa/static/styles/svg/flagCl.svg"> </a>
+
+            </article>
+        </section>
+        <section id="barra-inferior">
+            <article id="menuPrincipal">
+                <p class='dropdown-trigger btn' href='#' data-target='dropdown' id="margen"> <i
+                        class="material-icons">menu</i></p>
+                <ul id='dropdown' class='dropdown-content'>
+                    <li><a type="submit" href="" class="tecnologia">Tecnologia</a></li>
+                    <li><a type="submit" href="#!" class="moda">Moda</a></li>
+                    <li><a type="submit" href="/agregar" class="agregar">Agregar</a></li>
+                    <li><a type="submit" href="/listar" class="listar">Listar</a></li>
+                </ul>
+            </article>
+            <section id="buscarDatos">
+                <input type="search" style="margin: 0px !important;" placeholder="¿Qué buscas?">
             </section>
-            <section id="barra-inferior">
-                <article class="flex">
-                    <article class="flex" id="menu">
-                        <p class='dropdown-trigger btn' href='#' data-target='dropdown' id="margen"> <i class="material-icons" >menu</i></p>
-                        <ul id='dropdown' class='dropdown-content'>
-                            <li><a type="submit" href="" class="tecnologia">Tecnologia</a></li>
-                            <li><a type="submit" href="#!" class="moda">Moda</a></li>
-                            <li><a type="submit" href= "/principal/agregar"class="agregar">Agregar</a></li>
-                            <li><a type="submit" href="/principal/listar" class="listar">Listar</a></li>
-                        </ul>
-                    </article>
-                    <section class="flex" id="buscar">
-                        <input type="search" style="margin: 0px !important;" placeholder="¿Qué buscas?">
-                    </section>
-                        <a href="#" id="cuenta"><i class="material-icons">perm_identity</i><br>Cuenta</a>
-                        <a href="#" id="cuenta" class="compras">Mis Compras</a>
-                        <a href="#" id="cuenta" class="ayuda">Ayuda</a>
-                        <a href="#" id="cuenta">Bolsas</a>
-                </article>
+            <section id="DatosP">
+
+
+                <a class="waves-effect waves-light  modal-trigger" href="/accounts/login"><i
+                        class="material-icons">perm_identity</i><br>mi Cuenta<a>
+
+
+                        <a href="#" id="compras" class="compras">Mis Compras</a>
+                        <a href="#" id="ayuda" class="ayuda">Ayuda</a>
+                        <a href="#" id="bolsa">Bolsas</a>
             </section>
-        </header>
+        </section>
     </header>
-{% endblock header%}
-        {% block main %}
-        {% endblock main %}
-    </main>  
-    <footer>
-        {% block footer %}
-            <section class="footerP">
-                <p class="fh1">direccion: Mi Casa #123 San Bernardo</p>
-                <p class="fh2">Fono operador: +56978745627</p>
-                <p class="fh3"> tiendita del cris tiene todos los derechos reservados cuaquier difuncion de su contenido sera sancionado con multa de hasta 5 UTM</p>
-            </section>
-        {% endblock footer %}
-    </footer>
-    {% include "base/js.html" %}
-    {% block js %}
-    {% endblock js %}
+    {% block main2 %}
+    {% endblock main2 %}
+    </section>
+    {% endblock header%}
+    {% block main %}
+    {% endblock main %}
+    </main>
 </body>
+<footer class="footer-copyright">
+    <p class="fh1">direccion: Mi Casa #123 San Bernardo</p>
+    <p class="fh2">Fono operador: +56978745627</p>
+    <p class="fh3"> tiendita del cris tiene todos los derechos reservados cuaquier difuncion de su contenido
+        sera sancionado con multa de hasta 5 UTM</p>
+</footer>
+{% include "base/js.html" %}
+{% block js %}
+{% endblock js %}

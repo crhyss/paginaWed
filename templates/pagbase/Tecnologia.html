@@ -1,0 +1,36 @@
+{% extends 'pagbase/ingreso.html' %}
+{% block contenido2 %}
+{%if productos%}
+<section class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>imagen</th>
+                <th>nombre</th>
+                <th>marca</th>
+                <th>modelo</th>
+                <th>dimensiones</th>
+                <th>peso</th>
+                <th>detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td id="{{producto.id}}"></td>
+                <td>{{producto.link}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.marca}}</td>
+                <td>{{producto.modelo}}</td>
+                <td>{{producto.dimensiones}}</td>
+                <td>{{producto.peso}}</td>
+                <td>{{producto.detalle}}</td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</section>
+{% else %}
+<p>no se encuentran productos disponibles</p>
+{% endif %}
+{% endblock %}

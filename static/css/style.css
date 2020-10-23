@@ -57,6 +57,7 @@ body{
 #barra-inferior{
     background-color: rgba(190, 190, 190, 0.788);
     text-align-last: center;
+    height: 50px;
 }
 
 ::-webkit-input-placeholder { 
@@ -68,12 +69,15 @@ body{
 #imagenbd{
     width: 200px;
 }
-.footerP{
+footer{
     background-color: black;
     color: gray;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
+
+
 .fh1,.fh2 {
     width: 50%;
     text-align: -webkit-center;
@@ -92,15 +96,26 @@ body{
     box-shadow: none;
     padding: 0px !important;
 }
+#menuPrincipal{
+    width: 20%;
+    padding-right: 5%;
+    padding-left: 30px;
 
-#buscar{
-    width: 25%;
 }
-#cuenta{
-    width: 0px;
+#barra-inferior{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
-#compra{
-    width: 10%;
+#buscarDatos{
+    width: 40%;
+    padding: 0px 5% 0px 5%;
+}
+#DatosP{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    place-content: space-around;
 }
 #productos{
     justify-content: center;
@@ -408,4 +423,10 @@ body{
     }
 }
     */
+    #menuPrincipal{
+        width: 20%;
+        padding-right: 5%;
+        padding-left: 30px;
+    
+    }
 }
