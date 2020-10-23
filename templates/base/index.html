@@ -45,19 +45,37 @@
             </section>
             <section id="DatosP">
 
+                <a class="waves-effect waves-light btn modal-trigger btn-flat" href="#modal1"><i
+                        class="material-icons">perm_identity</i>Mi cuenta</a>
 
-                <a class="waves-effect waves-light  modal-trigger" href="/accounts/login"><i
-                        class="material-icons">perm_identity</i><br>mi Cuenta<a>
-
-
-                        <a href="#" id="compras" class="compras">Mis Compras</a>
-                        <a href="#" id="ayuda" class="ayuda">Ayuda</a>
-                        <a href="#" id="bolsa">Bolsas</a>
+                <a href="#" id="compras" class="compras">Mis Compras</a>
+                <a href="#" id="ayuda" class="ayuda">Ayuda</a>
+                <a href="#" id="bolsa">Bolsas</a>
             </section>
         </section>
     </header>
-    {% block main2 %}
-    {% endblock main2 %}
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content container">
+            {% block main2 %}
+            <form action="" method="POST" class="modal-dialog modal-lg" role="document">
+                <label for="id_username" class="">Nombre de usuario:</label><input type="text" name="username"
+                    autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required=""
+                    id="id_username">
+                <label for="id_password" class="">Contraseña:</label><input type="password" name="password"
+                    autocomplete="current-password" required="" id="id_password">
+                <input type="hidden" name="csrfmiddlewaretoken"
+                    value="AirN9wGtjIwgsLI8pasp8XQMyhKmVJxy6hpHTnbeCcuCHmNq2RtlXAUQS8YRE5Hx">
+                <input class="btn" type="submit" value="Iniciar Sesion">
+                <a class="waves-effect waves-light btn right" href="/accounts/registro">registro</a>
+            </form>
+            {% endblock main2 %}
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Salir</a>
+        </div>
+    </div>
     </section>
     {% endblock header%}
     {% block main %}
