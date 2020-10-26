@@ -1,10 +1,24 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 from .models import Producto
 from .forms import ProductoForm
 def paginaprincipal(request):
+    formulario = AuthenticationForm()
+    usuario =AuthenticationForm()
+    if request.method == 'POST':
+        formulario = AuthenticationForm(data = request.POST)
+        if formulario.is_valid():
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password']
+            usuarioLogeado = authenticate(username = username,password = password)
+            if usuarioLogeado is not None:
+                login(request, usuarioLogeado)
+                return redirect('/') 
     context = {
-        'titulo':'Tiendita del Cris'
+        'titulo':'Tiendita del Cris',
+        'formulario2':formulario
     }
     return render(
         request,
@@ -63,3 +77,4 @@ def eliminarProducto(request,id_producto):
     productoEliminado = Producto.objects.get(pk = id_producto)
     productoEliminado.delete()
     return (redirect('/principal/listar/'))
+

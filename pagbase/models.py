@@ -10,6 +10,4 @@ class Producto(models.Model):
     peso = models.PositiveIntegerField()
     dimension = models.PositiveIntegerField()
     detalle = models.TextField(max_length=300)
-
-# class Categoria(models.Model):
-#     tecnologia =  
+ 

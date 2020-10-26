@@ -108,13 +108,13 @@ footer{
     width: 100%;
 }
 #buscarDatos{
-    width: 40%;
+    width: 35%;
     padding: 0px 5% 0px 5%;
 }
 #DatosP{
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 45%;
     place-content: space-around;
 }
 #productos{

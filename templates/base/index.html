@@ -45,12 +45,19 @@
             </section>
             <section id="DatosP">
 
-                <a class="waves-effect waves-light btn modal-trigger btn-flat" href="#modal1"><i
-                        class="material-icons">perm_identity</i>Mi cuenta</a>
+                
 
                 <a href="#" id="compras" class="compras">Mis Compras</a>
                 <a href="#" id="ayuda" class="ayuda">Ayuda</a>
                 <a href="#" id="bolsa">Bolsas</a>
+                {% if user.is_authenticated %}
+                    <a class="waves-effect waves-light btn" href="/accounts/perfil/">{{ user.username }}</a>
+                    <a class="waves-effect waves-light btn btn-flat" href="/accounts/salir/">Salir</a>
+                {% else %}
+                    <a class="waves-effect waves-light btn modal-trigger btn-flat" href="#modal1"><i
+                        class="material-icons">perm_identity</i>Mi cuenta</a>
+                        
+                {% endif %}   
             </section>
         </section>
     </header>
@@ -58,19 +65,7 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content container">
-            {% block main2 %}
-            <form action="" method="POST" class="modal-dialog modal-lg" role="document">
-                <label for="id_username" class="">Nombre de usuario:</label><input type="text" name="username"
-                    autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required=""
-                    id="id_username">
-                <label for="id_password" class="">Contraseña:</label><input type="password" name="password"
-                    autocomplete="current-password" required="" id="id_password">
-                <input type="hidden" name="csrfmiddlewaretoken"
-                    value="AirN9wGtjIwgsLI8pasp8XQMyhKmVJxy6hpHTnbeCcuCHmNq2RtlXAUQS8YRE5Hx">
-                <input class="btn" type="submit" value="Iniciar Sesion">
-                <a class="waves-effect waves-light btn right" href="/accounts/registro">registro</a>
-            </form>
-            {% endblock main2 %}
+            {% include "usuario/login.html" %}
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Salir</a>
