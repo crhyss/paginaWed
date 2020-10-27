@@ -15,7 +15,10 @@ def paginaprincipal(request):
             usuarioLogeado = authenticate(username = username,password = password)
             if usuarioLogeado is not None:
                 login(request, usuarioLogeado)
-                return redirect('/') 
+                if usuarioLogeado.username == 'admin':
+                    return redirect('/administracion/')
+                else:
+                    return redirect('/')
     context = {
         'titulo':'Tiendita del Cris',
         'formulario2':formulario
@@ -28,10 +31,10 @@ def paginaprincipal(request):
 def agregarProducto(request):
     formulario = None
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST)
+        formulario = ProductoForm(request.POST,request.FILES)
         if formulario.is_valid():
             formulario.save()
-            return redirect('/principal/listar/')
+            return redirect('/listar/')
     else:
         formulario = ProductoForm()
     context = {
@@ -50,7 +53,7 @@ def modificarProducto(request,id_producto):
         formulario = ProductoForm(request.POST, instance=productoRecibido)
         if formulario.is_valid():
             formulario.save()
-            return redirect('/principal/listar/')
+            return redirect('/listar/')
     else:
         formulario = ProductoForm(instance=productoRecibido)
     context = {
@@ -76,5 +79,14 @@ def listarProducto(request):
 def eliminarProducto(request,id_producto):
     productoEliminado = Producto.objects.get(pk = id_producto)
     productoEliminado.delete()
-    return (redirect('/principal/listar/'))
+    return (redirect('/listar/'))
 
+def administracion(request):
+    context = {
+        'titulo':'Administrador'
+    }   
+    return render(
+        request,
+        'admin/admin.html',
+        context
+    )

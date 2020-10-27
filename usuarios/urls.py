@@ -4,6 +4,6 @@ urlpatterns = [
     path('login/',iniciarSesion, name='iniciarSesion'),
     path('registro/',registro, name='registro'),
     path('salir/',salir, name='salir'),
-    path('perfil/',perfil, name='peril'),
+    path('perfil/',perfil, name='perfil'),
     path('activacion/<uidb64>/<token>',verificacion.as_view(), name='activacion')
 ]

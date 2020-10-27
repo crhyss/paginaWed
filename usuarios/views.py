@@ -95,11 +95,16 @@ def salir(request):
 
 def perfil(request):
     if request.user.is_authenticated:
-        return render(
-            request,
-            'usuario/perfil.html'
+        if request.user.username == 'admin':
+            return render(
+                request,
+                'admin/admin.html',
         )
-    return redirect(to='/')
+        else:
+            return render(
+                request,
+                'usuario/perfil.html',
+        )
 
 class verificacion(View):
     def get(self, request, uidb64, token):
