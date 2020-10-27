@@ -17,10 +17,10 @@ from django.views import View
 
 
 def iniciarSesion(request):
-    formulario2 = AuthenticationForm()
+    formulario2 = inicioForm()
     usuario = AuthenticationForm()
     if request.method == 'POST':
-        formulario2 = AuthenticationForm(data=request.POST)
+        formulario2 = inicioForm(data=request.POST)
         if formulario2.is_valid():
             username = formulario2.cleaned_data['username']
             password = formulario2.cleaned_data['password']
@@ -29,7 +29,8 @@ def iniciarSesion(request):
                 login(request, usuarioLogeado)
                 return redirect('/')
     context = {
-        'formulario2': formulario2
+        'formulario2': formulario2,
+        'usuario':usuario
     }
     return render(
         request,
@@ -43,6 +44,7 @@ def registro(request):
     formulario.fields['username'].help_text = None
     formulario.fields['password1'].help_text = None
     formulario.fields['password2'].help_text = None
+    formulario.fields['genero']
     formulario2 = AuthenticationForm()
     usuario = AuthenticationForm()
     if request.method == 'POST':
@@ -99,26 +101,19 @@ def perfil(request):
         )
     return redirect(to='/')
 
-# def vista_confirmacion(request, contrasen (codigo), usuario):
-#     usuario = User.objects.get(username = usuario)
-#     usuario.is_active = True
-#     usuario.save()
-#     return redirect(to='/')
-
-
 class verificacion(View):
     def get(self, request, uidb64, token):
         try:
             uid = force_text(urlsafe_base64_decode(uidb64))
-            user = User.objects.get(pk=uid)
+            usuario = User.objects.get(pk=uid)
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-            user = None
+            usuario = None
 
-        if user is not None and token_generador.check_token(user, token):
-            user.is_active = True
-            user.save()
-            login(request, user)
-            messages.success(request, ('tu cuenta a sido confirmada.'))
+        if usuario is not None and token_generador.check_token(usuario, token):
+            usuario.is_active = True
+            usuario.save()
+            login(request, usuario)
+            messages.success(request, ('tu cuenta a sido Validada.'))
             return redirect('/')
         else:
             messages.warning(request, ('La confirmacion de la cuenta es invalida, posiblemente porque ya se ha utilizado.'))

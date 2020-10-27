@@ -1,9 +1,10 @@
 
-{% block main2 %}
-    <form action="" method="POST" class="modal-dialog modal-lg" role="document">
+{% block modal %}
+    <form action="" method="POST" class="form-group" style="flex-wrap: wrap;
+    display: flex;">
         {{formulario2}}
         {% csrf_token %}
-        <input class="btn" type="submit" value="Iniciar Sesion">
-        <a class="waves-effect waves-light btn right" href="/accounts/registro">registro</a>
+        <input class="btn btn-primary" type="submit" value="Iniciar Sesion">
+        <a class="btn btn-primary col-md-4 ml-auto" type="button" href="/accounts/registro">registro</a> 
     </form>
-{% endblock main2 %}
+{% endblock modal %}
