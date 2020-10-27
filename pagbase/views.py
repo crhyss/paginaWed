@@ -15,7 +15,10 @@ def paginaprincipal(request):
             usuarioLogeado = authenticate(username = username,password = password)
             if usuarioLogeado is not None:
                 login(request, usuarioLogeado)
-                return redirect('/') 
+                if usuarioLogeado.username == 'admin':
+                    return redirect('/administracion/')
+                else:
+                    return redirect('/')
     context = {
         'titulo':'Tiendita del Cris',
         'formulario2':formulario
@@ -78,3 +81,12 @@ def eliminarProducto(request,id_producto):
     productoEliminado.delete()
     return (redirect('/listar/'))
 
+def administracion(request):
+    context = {
+        'titulo':'Administrador'
+    }   
+    return render(
+        request,
+        'admin/admin.html',
+        context
+    )
