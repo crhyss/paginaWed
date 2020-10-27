@@ -58,7 +58,6 @@
                     aria-label="Search">
             </section>
             <section id="DatosP">
-                <a href="#" id="compras" class="compras">Mis Compras</a>
                 <a href="#" id="ayuda" class="ayuda">Ayuda</a>
                 <a href="#" id="bolsa">Bolsas</a>
                 {% if user.is_authenticated %}
@@ -86,9 +85,7 @@
                         {% include "usuario/login.html" %}
                         {% endblock modal %}
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -101,8 +98,8 @@
 <footer class="footer-copyright">
     <p class="fh1">direccion: Mi Casa #123 San Bernardo</p>
     <p class="fh2">Fono operador: +56978745627</p>
-    <p class="fh3"> tiendita del cris tiene todos los derechos reservados cuaquier difuncion de su contenido
-        sera sancionado con multa de hasta 5 UTM</p>
+    <p class="fh3"> La Tiendita de Cristian®</p>
+    <p class = "fh3">Todos los derechos reservados, cualquier uso indebido de la marca será sancionado con un besito en los cachetes</p>
 </footer>
 {% include "base/js.html" %}
 {% block js %}
