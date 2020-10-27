@@ -41,8 +41,10 @@
                 <ul class='dropdown-menu' aria-labelledby="dropdownMenu2">
                     <li><a type="button" href="" class="tecnologia">Tecnologia</a></li>
                     <li><a type="button" href="#!" class="moda">Moda</a></li>
-                    <li><a type="button" href="/agregar" class="agregar">Agregar</a></li>
-                    <li><a type="button" href="/listar" class="listar">Listar</a></li>
+                    {% if user.username == 'admin' %}
+                        <li><a type="button" href="/agregar" class="agregar">Agregar</a></li>
+                        <li><a type="button" href="/listar" class="listar">Listar</a></li>
+                    {% endif%}
                 </ul>
             </article>
             <section class="form-inline" id='buscarDatos'>
@@ -60,10 +62,10 @@
                 <a href="#" id="ayuda" class="ayuda">Ayuda</a>
                 <a href="#" id="bolsa">Bolsas</a>
                 {% if user.is_authenticated %}
-                <a class="waves-effect waves-light btn" href="/accounts/perfil/">{{ user.username }}</a>
-                <a class="waves-effect waves-light btn btn-flat" href="/accounts/salir/">Salir</a>
+                <a class="waves-effect waves-light btn text-primary" href="/accounts/perfil/">{{ user.username }}</a>
+                <a class="waves-effect waves-light btn btn-flat text-primary" href="/accounts/salir/">Salir</a>
                 {% else %}
-                <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal">Mi cuenta</a>
+                <a type="button" class="btn text-primary" data-toggle="modal" data-target="#exampleModal">Mi cuenta</a>
                 {% endif %}
             </section>
         </section>
