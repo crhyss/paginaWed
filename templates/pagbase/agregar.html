@@ -5,9 +5,9 @@
         <img class="imagen-producto"  src="https://scontent-scl2-1.cdninstagram.com/v/t51.2885-15/e35/65110435_471970740301919_1632220654426317265_n.jpg?_nc_ht=scontent-scl2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=ELX6oeXG8jkAX8yUTpS&_nc_tp=18&oh=6077b8440fe942bfc1bd762e09159b9f&oe=5F92B5EC"/>
     </section>
     <section class="formulario">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{formulario.as_p}}
+            {{formulario}}
             <button class="btn waves-effect waves-light" type="submit" name="action">guardar
                 <i class="material-icons right">send</i>
             </button>

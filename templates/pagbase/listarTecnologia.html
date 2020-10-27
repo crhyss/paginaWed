@@ -9,7 +9,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Link</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Marca</th>
                     <th>Modelo</th>
@@ -23,7 +23,7 @@
                 <tbody>
                     {%for producto in productos%}
                         <tr id="{{producto.id}}">
-                            <td><img id="imagenbd" src="{{producto.link}}" alt=""></td>
+                            <td><img id="imagenbd" src="/media/{{producto.foto}}" alt=""></td>
                             <td>{{producto.nombre}}</td>
                             <td>{{producto.marca}}</td>
                             <td>{{producto.modelo}}</td>
@@ -41,7 +41,7 @@
             </table>
         </div>
     {% else %}
-        <a href="/principal/agregar">Añadir un producto</a>
+        <a href="/agregar">Añadir un producto</a>
         <p>Actualmente no hay productos disponibles</p>
     {% endif %}
     </div>

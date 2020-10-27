@@ -28,10 +28,10 @@ def paginaprincipal(request):
 def agregarProducto(request):
     formulario = None
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST)
+        formulario = ProductoForm(request.POST,request.FILES)
         if formulario.is_valid():
             formulario.save()
-            return redirect('/principal/listar/')
+            return redirect('/listar/')
     else:
         formulario = ProductoForm()
     context = {
@@ -50,7 +50,7 @@ def modificarProducto(request,id_producto):
         formulario = ProductoForm(request.POST, instance=productoRecibido)
         if formulario.is_valid():
             formulario.save()
-            return redirect('/principal/listar/')
+            return redirect('/listar/')
     else:
         formulario = ProductoForm(instance=productoRecibido)
     context = {
@@ -76,5 +76,5 @@ def listarProducto(request):
 def eliminarProducto(request,id_producto):
     productoEliminado = Producto.objects.get(pk = id_producto)
     productoEliminado.delete()
-    return (redirect('/principal/listar/'))
+    return (redirect('/listar/'))
 

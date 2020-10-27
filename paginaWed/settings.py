@@ -137,3 +137,6 @@ EMAIL_HOST_PASSWORD = 'aquivalacontrasena'
 EMAIL_PORT = 587
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = join(BASE_DIR,'media')
