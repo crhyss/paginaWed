@@ -91,11 +91,25 @@ def administracion(request):
         context
     )
 def moda(request):
+    productos = Producto.objects.all()  
     context = {
-        'titulo':'Moda'
+        'titulo':'Moda',
+        'productos':productos
     }   
     return render(
         request,
-        'pagbase/moda.html',
+        'pagbase/catalogoModa.html',
+        context
+    )
+
+def muestraProducto(request,id_producto):
+    productoRecibido = Producto.objects.get(pk=id_producto)
+    context = {
+        'titulo':'Moda',
+        'producto':productoRecibido
+    }    
+    return render(
+        request,
+        'pagbase/datosProductos.html',
         context
     )

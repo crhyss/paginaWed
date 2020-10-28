@@ -1,0 +1,25 @@
+{% extends 'base/index.html' %}
+{% block main %}
+<main class="container" style="display: flex; flex-wrap: wrap; align-items: center;">
+    <section class="container" style="width: 240px;">
+        <img src="/media/{{producto.foto}}" class="m-2" alt="" style="width: 200px; height: auto;">
+    </section>
+    <section>
+        <nav>
+            <p>Marca:{{producto.marca}}</p>
+            <p>Precio: ${{producto.precio}}</p>
+            <p>Peso: {{producto.peso}}Kg</p>
+            <p>Dimension: {{producto.dimension}}</p>
+            <p>Detalle: {{producto.detalle}}</p>
+            <button class="btn btn-primary">Comprar</button>
+            <button class="btn btn-primary">Agregar al Carrito</button>
+        </nav>
+    </section>
+</main>
+
+<section class="container">
+    <button type="submit" class="btn btn-success green rounded-pill"> Comentar</button>
+    <textarea rows="" cols=""></textarea>
+</section>
+
+{% endblock %}
