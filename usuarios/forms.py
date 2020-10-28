@@ -14,3 +14,10 @@ class inicioForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = ('first_name','last_name','username','password1','password2','email','edad','fecha_nacimiento','genero')
+        widgets = {
+            "fecha_nacimiento":forms.TextInput(
+                attrs={
+                    "type":"date"
+                }
+            )
+        }

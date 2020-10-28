@@ -10,5 +10,5 @@ class Genero(models.Model):
 
 class Usuario(User):
     edad = models.PositiveIntegerField()
-    fecha_nacimiento = models.DateTimeField()
+    fecha_nacimiento = models.DateTimeField(auto_now=False, auto_now_add=False)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)

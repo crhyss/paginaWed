@@ -90,3 +90,12 @@ def administracion(request):
         'admin/admin.html',
         context
     )
+def moda(request):
+    context = {
+        'titulo':'Moda'
+    }   
+    return render(
+        request,
+        'pagbase/moda.html',
+        context
+    )
