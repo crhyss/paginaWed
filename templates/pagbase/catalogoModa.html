@@ -1,7 +1,8 @@
 {% extends 'base/index.html' %}
 {% block main %}
-<main class="container" style="display: flex;">
-{%for producto in productos%}
+<main class="container">
+  <section class="card-group" style="display: flex;">
+    {%for producto in productos%}
     <div class="card" style="width: 250px;" id="{{producto.id}}">
       <img src="/media/{{producto.foto}}" class="img-thumbnail" alt="{{producto.nombre}}">
       <div class="card-body">
@@ -14,18 +15,23 @@
         <p class="">Dimension: {{producto.dimension}}</p>
         <p class="">Detalle: {{producto.detalle}}</p>
       </ul>
-      <a href="/productos/{{producto.id}}" class="card-link btn btn-primary">Visualizar</a>
-      <a href="#!" class="card-link btn btn-primary">Agregar al Carrito</a>
+      <footer class="card-footer">
+        <div class="btn-group" role="group" aria-label="Basic example"></div>
+        <a href="/productos/{{producto.id}}" class="card-link btn btn-primary">Visualizar</a><br>
+        <a href="#!" class="card-link btn btn-primary">Agregar al Carrito</a>
+        </div>
+    </footer>
     </div>
-  {% endfor %}
+    {% endfor %}
+  </section>
 </main>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </nav>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
 {% endblock %}
