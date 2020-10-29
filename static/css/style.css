@@ -13,6 +13,10 @@ p {
     margin-top: 0;
     margin-bottom: 0 !important;
 }
+#formulari{
+    flex-wrap: wrap;
+    display: flex;
+}
 .formulario{
     margin: 10%;
 }
