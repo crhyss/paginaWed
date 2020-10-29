@@ -252,6 +252,10 @@ footer{
     width: 100%;
     margin-bottom: 20px;
 }
+#card-footer-moda{
+    display: flex;
+    justify-content: center;
+}
 
 /*Media query para la versión móvil*/
 @media screen and (min-width: 0px) and (max-width: 850px){

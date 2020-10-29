@@ -1,22 +1,23 @@
 {% extends 'base/index.html' %}
 {% block main %}
 <main class="container">
-  <section class="card-group" style="display: flex;">
+  <section class="card-group col-sm-12 col-md-6 mx-auto mt-5" style="display: flex;">
     {%for producto in productos%}
-    <div class="card" style="width: 250px;" id="{{producto.id}}">
+    <div class="card" style="max-width: 250px; margin: 10px" id="{{producto.id}}">
       <img src="/media/{{producto.foto}}" class="img-thumbnail" alt="{{producto.nombre}}">
       <div class="card-body">
         <h5 class="card-title">{{producto.Nombre}}</h5>
+        
+          <p class="">Marca:{{producto.marca}}</p>
+          <p class="">Precio: ${{producto.precio}}</p>
+          <p class="">Peso: {{producto.peso}}Kg</p>
+          <p class="">Dimension: {{producto.dimension}}</p>
+          <p class="">Detalle: {{producto.detalle}}</p>
+          <p>Categoria:{{producto.categoria}} </p>
+        
       </div>
-      <ul class="list-group list-group-flush">
-        <p class="">Marca:{{producto.marca}}</p>
-        <p class="">Precio: ${{producto.precio}}</p>
-        <p class="">Peso: {{producto.peso}}Kg</p>
-        <p class="">Dimension: {{producto.dimension}}</p>
-        <p class="">Detalle: {{producto.detalle}}</p>
-        <p>Categoria:{{producto.categoria}} </p>
-      </ul>
-      <footer class="card-footer">
+      
+      <footer class="card-footer" id = "card-footer-moda">
         <div class="btn-group" role="group" aria-label="Basic example"></div>
         <a href="/productos/{{producto.id}}" class="card-link btn btn-primary">Visualizar</a><br>
         <a href="#!" class="card-link btn btn-primary">Agregar al Carrito</a>
@@ -26,7 +27,7 @@
     {% endfor %}
   </section>
 </main>
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
