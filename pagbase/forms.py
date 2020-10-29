@@ -1,5 +1,5 @@
 from django import forms
-from .models import Producto
+from .models import Producto,Categoria
 
 def agregarClaseFormControl(elementos):
     for campo in elementos:
@@ -13,3 +13,8 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = ['foto','nombre','marca','modelo','precio','peso','dimension','detalle','categoria']
+
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['Nombre']

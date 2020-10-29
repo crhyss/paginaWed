@@ -13,6 +13,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import token_generador
 from django.views import View
+from pagbase.models import Categoria
 # Create your views here.
 
 
@@ -34,12 +35,12 @@ def iniciarSesion(request):
     }
     return render(
         request,
-        'base/index.html',
         context
     )
 
 
 def registro(request):
+    lista = Categoria.objects.all()
     formulario = inicioForm()
     formulario.fields['username'].help_text = None
     formulario.fields['password1'].help_text = None
@@ -79,7 +80,8 @@ def registro(request):
                 return redirect('/')
     context = {
         'formulario': formulario,
-        'formulario2': formulario2
+        'formulario2': formulario2,
+        'lista':lista
     }
     return render(
         request,
@@ -94,17 +96,24 @@ def salir(request):
 
 
 def perfil(request):
+    lista = Categoria.objects.all()
+    context = {
+    'lista':lista
+    }
     if request.user.is_authenticated:
         if request.user.username == 'admin':
             return render(
                 request,
                 'admin/admin.html',
+                context
         )
         else:
             return render(
                 request,
                 'usuario/perfil.html',
+                context
         )
+
 
 class verificacion(View):
     def get(self, request, uidb64, token):

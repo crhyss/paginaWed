@@ -2,11 +2,13 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 # Create your views here.
-from .models import Producto
-from .forms import ProductoForm
+from .models import Producto,Categoria
+from .forms import ProductoForm,CategoriaForm
+
 def paginaprincipal(request):
     formulario = AuthenticationForm()
     usuario =AuthenticationForm()
+    lista = Categoria.objects.all()
     if request.method == 'POST':
         formulario = AuthenticationForm(data = request.POST)
         if formulario.is_valid():
@@ -21,7 +23,8 @@ def paginaprincipal(request):
                     return redirect('/')
     context = {
         'titulo':'Tiendita del Cris',
-        'formulario2':formulario
+        'formulario2':formulario,
+        'lista':lista
     }
     return render(
         request,
@@ -29,6 +32,7 @@ def paginaprincipal(request):
         context
     )   
 def agregarProducto(request):
+    lista = Categoria.objects.all()
     formulario = None
     if request.method == 'POST':
         formulario = ProductoForm(request.POST,request.FILES)
@@ -39,7 +43,8 @@ def agregarProducto(request):
         formulario = ProductoForm()
     context = {
         'titulo':'Agregar Producto',
-        'formulario':formulario
+        'formulario':formulario,
+        'lista':lista,
     }    
     return render(
         request,
@@ -48,6 +53,7 @@ def agregarProducto(request):
     )
 def modificarProducto(request,id_producto):
     productoRecibido = Producto.objects.get(pk=id_producto)
+    lista = Categoria.objects.all()
     formulario = None
     if request.method =='POST':
         formulario = ProductoForm(request.POST, instance=productoRecibido)
@@ -58,7 +64,8 @@ def modificarProducto(request,id_producto):
         formulario = ProductoForm(instance=productoRecibido)
     context = {
         'titulo':'Modificar Producto',
-        'formulario':formulario
+        'formulario':formulario,
+        'lista':lista,
     }    
     return render(
         request,
@@ -67,9 +74,11 @@ def modificarProducto(request,id_producto):
     )
 def listarProducto(request):
     productos = Producto.objects.all()
+    lista = Categoria.objects.all()
     context = {
         'titulo':'Productos',
-        'productos':productos
+        'productos':productos,
+        'lista':lista,
     }    
     return render(
         request,
@@ -82,19 +91,26 @@ def eliminarProducto(request,id_producto):
     return (redirect('/listar/'))
 
 def administracion(request):
+    lista = Categoria.objects.all()
     context = {
-        'titulo':'Administrador'
+        'titulo':'Administrador',
+        'lista':lista,
     }   
     return render(
         request,
         'admin/admin.html',
         context
     )
-def moda(request):
-    productos = Producto.objects.all()  
+def lista(request,id):
+    usuario = AuthenticationForm()
+    lista = Categoria.objects.all()
+    productos = Producto.objects.filter(categoria_id__exact = id)
     context = {
-        'titulo':'Moda',
-        'productos':productos
+        'titulo':'lista',
+        'usuario':usuario,
+        'productos':productos,
+        'lista':lista,
+        'usuario':usuario
     }   
     return render(
         request,
@@ -103,13 +119,40 @@ def moda(request):
     )
 
 def muestraProducto(request,id_producto):
+    lista = Categoria.objects.all()
+    usuario = AuthenticationForm()
     productoRecibido = Producto.objects.get(pk=id_producto)
     context = {
         'titulo':'Moda',
-        'producto':productoRecibido
+        'producto':productoRecibido,
+        'usuario':usuario,
+        'lista':lista,
     }    
     return render(
         request,
         'pagbase/datosProductos.html',
+        context
+    )
+def categoria(request):
+    usuario = AuthenticationForm()
+    lista = Categoria.objects.all()
+    formulario = None
+    if request.method == 'POST':
+        formulario = CategoriaForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/')
+    else:
+        formulario = CategoriaForm()
+    context = {
+        'titulo':'Agregar Categoria',
+        'formularioC':formulario,
+        'lista':lista,
+        'usuario':usuario,
+        
+    }    
+    return render(
+        request,
+        'admin/categoria.html',
         context
     )

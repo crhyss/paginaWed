@@ -6,7 +6,7 @@
     <div class="card" style="width: 250px;" id="{{producto.id}}">
       <img src="/media/{{producto.foto}}" class="img-thumbnail" alt="{{producto.nombre}}">
       <div class="card-body">
-        <h5 class="card-title">{{producto.nombre}}</h5>
+        <h5 class="card-title">{{producto.Nombre}}</h5>
       </div>
       <ul class="list-group list-group-flush">
         <p class="">Marca:{{producto.marca}}</p>
@@ -14,6 +14,7 @@
         <p class="">Peso: {{producto.peso}}Kg</p>
         <p class="">Dimension: {{producto.dimension}}</p>
         <p class="">Detalle: {{producto.detalle}}</p>
+        <p>Categoria:{{producto.categoria}} </p>
       </ul>
       <footer class="card-footer">
         <div class="btn-group" role="group" aria-label="Basic example"></div>

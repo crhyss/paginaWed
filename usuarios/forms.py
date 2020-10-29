@@ -21,3 +21,4 @@ class inicioForm(UserCreationForm):
                 }
             )
         }
+    
