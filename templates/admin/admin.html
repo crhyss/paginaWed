@@ -1,6 +1,12 @@
 {% extends 'base/index.html' %}
 {% block main %}
-<a type="button" href="/agregar" class="btn">Agregar</a>
-<a type="button" href="/listar" class="btn">Listar</a>
-<a type="button" href="/categoria" class="btn">Categoria</a>
+<div id = "card-admin">
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a type="button" href="/agregar" class="btn">Agregar</a></li>
+        <li class="list-group-item"><a type="button" href="/listar" class="btn">Listar</a></li>
+        <li class="list-group-item"><a type="button" href="/categoria" class="btn">Categoria</a></li>
+        </ul>
+    </div>
+</div>
 {% endblock main %}

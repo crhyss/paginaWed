@@ -20,10 +20,14 @@ p {
 .formulario{
     margin: 10%;
 }
-body{
+#body{
     background-image: url(https://tunuevavitrina.cl/wp-content/uploads/2018/07/fondo-slide-1_2_0.jpg);
     background-repeat: no-repeat;
-    background-attachment: fixed
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120vh;
 }
 /*barra superior*/
 #logoWeb{
@@ -84,6 +88,7 @@ footer{
     flex-wrap: wrap;
     width: 100%;
 }
+
 
 
 .fh1,.fh2 {
@@ -259,6 +264,11 @@ footer{
 #card-footer-moda{
     display: flex;
     justify-content: center;
+}
+#card-admin{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
 }
 
 /*Media query para la versión móvil*/
