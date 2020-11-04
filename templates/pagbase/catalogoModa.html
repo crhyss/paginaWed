@@ -25,7 +25,7 @@
       <footer class="card-footer" id = "card-footer-moda">
         <div class="btn-group" role="group" aria-label="Basic example"></div>
         <a href="/productos/{{producto.id}}" class="card-link btn btn-primary">Visualizar</a><br>
-        <a href="{% url 'cart:agregarproducto' producto_id = producto.id %}" class="card-link btn btn-primary">Agregar al carrito</a>
+        <a href="{% url 'cart:agregarproducto' producto_id=producto.id %}" class="card-link btn btn-primary">Agregar al carrito</a>
         </div>
     </footer>
     </div>
