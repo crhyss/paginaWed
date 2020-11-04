@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from .models import Producto, Categoria
 from .forms import ProductoForm, CategoriaForm
 from usuarios.forms import inicioForm
+from carrito.cart import Cart
 
 def paginaprincipal(request):
     formulario = AuthenticationForm()
@@ -29,7 +30,7 @@ def paginaprincipal(request):
     }
     return render(
         request,
-        'pagbase/principal.html',
+        'usuario/login.html',
         context
     )
 
@@ -114,6 +115,7 @@ def administracion(request):
 
 
 def lista(request, id):
+    cart = Cart(request)
     productos = Producto.objects.filter(categoria_id__exact=id)
     formulario2 = AuthenticationForm()
     lista = Categoria.objects.all()
@@ -187,5 +189,16 @@ def categoria(request):
     return render(
         request,
         'admin/categoria.html',
+        context
+    )
+def carrito(request):
+    usuario = AuthenticationForm()
+    context = {
+        'titulo':'Carrito',
+        'usuario':usuario,
+    }
+    return render(
+        request,
+        'pagbase/carrito.html',
         context
     )

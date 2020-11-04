@@ -1,0 +1,45 @@
+{% load cart_tags %}
+<table class="table tabel-borderer">
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center">
+                Carrito de compras
+            </th>
+        </tr>
+        <tr class = "text-center">
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if request.session.cart.items %}
+            {% for key, value in request.session.cart.items %}
+                <tr class="text-center">
+                    <td>{{value.nombre}}</td>
+                    <td>{{value.cantidad}}</td>
+                    <td>
+                        <a href="{% url 'cart:agregarproducto' value.producto_id %}" class = "btn btn-sm btn-success"> + </a>
+                        <a href="{% url 'cart:decrementarproducto' value.producto_id %}" class = "btn btn-sm btn-success"> - </a>
+                        Total {{ value.precio|multiplicar:value.cantidad|formato_monetario:"$"}}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-danger text-center">
+                    No hay productos en el carrito
+                </div>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: {{ monto_total_cart|formato_monetario:"$" }}
+            </td>
+        </tr>
+    </tfoot>
+</table>
