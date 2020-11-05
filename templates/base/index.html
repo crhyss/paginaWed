@@ -56,7 +56,7 @@
             </section>
             <section id="DatosP">
                 <a href="#" id="ayuda" class="ayuda">Ayuda</a>
-                <a href="{% url 'carrito' %}" id="bolsa">Bolsas <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-basket2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <a href="{% url 'carrito' %}" type="button" data-toggle="modal" data-target="#exampleModal2">Bolsas <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-basket2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
                     <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
                   </svg></a>
@@ -88,6 +88,70 @@
                 </div>
             </div>
         </div>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    {% load cart_tags %}
+                    <table class="table tabel-borderer">
+                        <thead>
+                            <tr>
+                                <th colspan="3" class="text-center">
+                                    Carrito de compras
+                                </th>
+                            </tr>
+                            <tr class = "text-center">
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if request.session.cart.items %}
+                                {% for key, value in request.session.cart.items %}
+                                    <tr class="text-center">
+                                        <td>{{value.nombre}}</td>
+                                        <td>{{value.cantidad}}</td>
+                                        <td>
+                                            
+                                            Total {{ value.precio|multiplicar:value.cantidad|formato_monetario:"$"}}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="3">
+                                    <div class="alert alert-danger text-center">
+                                        No hay productos en el carrito
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    Total: {{ monto_total_cart|formato_monetario:"$" }}
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
     {% endblock header%}
     {% block main %}
     {% endblock main %}
