@@ -6,6 +6,7 @@ from .models import Producto, Categoria
 from .forms import ProductoForm, CategoriaForm
 from usuarios.forms import inicioForm
 from carrito.cart import Cart
+from django.core.paginator import Paginator
 
 def paginaprincipal(request):
     formulario = AuthenticationForm()
@@ -128,6 +129,11 @@ def lista(request, id):
             if usuarioLogeado is not None:
                 login(request, usuarioLogeado)
                 return redirect('/')
+        
+    paginator = Paginator(productos, 3)
+    page = request.GET.get('page')
+    productos = paginator.get_page(page)
+
     context = {
         'titulo': 'lista',
         'productos': productos,
