@@ -9,7 +9,7 @@ def agregarProducto(request, producto_id):
     cart = Cart(request)
     producto = Producto.objects.get(id = producto_id)
     cart.add(producto = producto)
-    return redirect("/carrito/")
+    return redirect('/carrito/')
 @login_required(login_url="/accounts/login/")
 def eliminarProducto(request, producto_id):
     cart = Cart(request)

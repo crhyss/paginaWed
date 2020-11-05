@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .views import agregarProducto,decrementarProducto,eliminarProducto,limpiarCarrito
 
 
 app_name = "cart"
