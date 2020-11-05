@@ -9,7 +9,7 @@ from carrito.cart import Cart
 from django.core.paginator import Paginator
 
 def paginaprincipal(request):
-    cart = Cart(request, request.FILES)
+    cart = Cart(request)
     formulario = AuthenticationForm()
     usuario = AuthenticationForm()
     lista = Categoria.objects.all()
