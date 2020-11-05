@@ -9,7 +9,7 @@ from carrito.cart import Cart
 from django.core.paginator import Paginator
 
 def paginaprincipal(request):
-    cart = Cart(request)
+    cart = Cart(request, request.FILES)
     formulario = AuthenticationForm()
     usuario = AuthenticationForm()
     lista = Categoria.objects.all()
@@ -199,11 +199,11 @@ def categoria(request):
         context
     )
 def carrito(request):
-    usuario = AuthenticationForm()
+    lista = Categoria.objects.all()
     context = {
-        'titulo':'Carrito',
-        'usuario':usuario,
-    }
+        'titulo': 'Carrito',
+        'lista': lista,
+    }    
     return render(
         request,
         'pagbase/carrito.html',

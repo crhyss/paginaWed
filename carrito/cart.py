@@ -10,10 +10,11 @@ class Cart:
     def add(self,producto):
         if str(producto.id) not in self.cart.keys():
             self.cart[producto.id] = {
-                "producto.id": producto.id,
+                "producto_id": str(producto.id),
                 "nombre": producto.nombre,
                 "cantidad": 1,
-                "precio":str(producto.precio)
+                "precio":str(producto.precio),
+                "foto":str(producto.foto)
             }
         else:
             for key, value in self.cart.items():
