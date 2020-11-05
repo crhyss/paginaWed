@@ -31,13 +31,12 @@
     {% endfor %}
   </section>
 </main>
-  <div class="row">
+  <div class="row" style="display: flex; margin: 10px;">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
       <div class="col-md-6 float-left">
         {% if productos.has_previous %}
           <div class="clearfix">
             <a href="?page={{productos.previous_page_number}}" class="btn btn-primary float-left">Anterior</a>
-          </div>
         {% endif %}
       </div>
     </div>
@@ -45,7 +44,7 @@
       <div class="col-md-6 float-left">
         {% if productos.has_next %}
           <div class="clearfix">
-            <a href="?page={{productos.next_page_number}}" class="btn btn-primary float-left">Siguiente</a>
+            <a href="?page={{productos.next_page_number}}" class="btn btn-primary float-right">Siguiente</a>
           </div>
         {% endif %}
       </div>

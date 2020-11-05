@@ -1,4 +1,5 @@
 {% load cart_tags %}
+
 <table class="table tabel-borderer">
     <thead>
         <tr>
@@ -19,6 +20,7 @@
                     <td>{{value.nombre}}</td>
                     <td>{{value.cantidad}}</td>
                     <td>
+                        <a href="{url 'eliminarproducto' producto.id}">Eliminar</a>
                         Total {{ value.precio|multiplicar:value.cantidad|formato_monetario:"$"}}
                     </td>
                 </tr>
