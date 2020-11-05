@@ -19,8 +19,7 @@
                     <td>{{value.nombre}}</td>
                     <td>{{value.cantidad}}</td>
                     <td>
-                        <a href="{% url 'cart:agregarproducto' value.producto_id %}" class = "btn btn-sm btn-success"> + </a>
-                        <a href="{% url 'cart:decrementarproducto' value.producto_id %}" class = "btn btn-sm btn-success"> - </a>
+                        
                         Total {{ value.precio|multiplicar:value.cantidad|formato_monetario:"$"}}
                     </td>
                 </tr>
