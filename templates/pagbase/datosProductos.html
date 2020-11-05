@@ -11,8 +11,7 @@
             <p>Peso: {{producto.peso}}Kg</p>
             <p>Dimension: {{producto.dimension}}</p>
             <p>Detalle: {{producto.detalle}}</p>
-            <button class="btn btn-primary">Comprar</button>
-            <button class="btn btn-primary">Agregar al Carrito</button>
+            <a href="{% url 'cart:agregarproducto' producto_id=producto.id %}" class="btn btn-primary">Agregar al Carrito</a>
         </nav>
     </section>
 </main>
