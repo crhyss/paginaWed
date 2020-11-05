@@ -18,23 +18,29 @@ from pagbase.models import Categoria
 
 
 def iniciarSesion(request):
-    formulario2 = inicioForm()
+    formulario = AuthenticationForm()
     usuario = AuthenticationForm()
+    lista = Categoria.objects.all()
     if request.method == 'POST':
-        formulario2 = inicioForm(data=request.POST)
-        if formulario2.is_valid():
-            username = formulario2.cleaned_data['username']
-            password = formulario2.cleaned_data['password']
+        formulario = AuthenticationForm(data=request.POST)
+        if formulario.is_valid():
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password']
             usuarioLogeado = authenticate(username=username, password=password)
             if usuarioLogeado is not None:
                 login(request, usuarioLogeado)
-                return redirect('/')
+                if usuarioLogeado.username == 'admin':
+                    return redirect('/administracion/')
+                else:
+                    return redirect('/')
     context = {
-        'formulario2': formulario2,
-        'usuario':usuario
+        'titulo': 'Tiendita del Cris',
+        'formulario2': formulario,
+        'lista': lista
     }
     return render(
         request,
+        'usuario/login copy.html',
         context
     )
 

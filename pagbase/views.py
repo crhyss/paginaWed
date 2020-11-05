@@ -30,7 +30,7 @@ def paginaprincipal(request):
     }
     return render(
         request,
-        'usuario/login.html',
+        'pagbase/principal.html',
         context
     )
 

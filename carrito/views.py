@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .cart import Cart
 
 # Create your views here.
-@login_required(login_url ="/accounts/login/")
+@login_required(redirect_field_name='login')
 def agregarProducto(request, producto_id):
     cart = Cart(request)
     producto = Producto.objects.get(id = producto_id)

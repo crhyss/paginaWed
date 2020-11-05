@@ -70,10 +70,9 @@
         </section>
     </header>
     <!-- Modal -->
-    <main class="container">
         <div class="modal fade modal-dialog-centereda " id="exampleModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content ">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,13 +80,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        {% block modal %}
                         {% include "usuario/login.html" %}
+                        {% endblock modal %}
                     </div>
                     
                 </div>
             </div>
         </div>
-    </main>
     {% endblock header%}
     {% block main %}
     {% endblock main %}
