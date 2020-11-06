@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login, logout, authenticate
 from pagbase.urls import paginaprincipal
 from .forms import inicioForm
@@ -14,6 +14,9 @@ from django.urls import reverse
 from .utils import token_generador
 from django.views import View
 from pagbase.models import Categoria
+from django.contrib.auth.views import PasswordResetView
+
+
 # Create your views here.
 
 
@@ -137,3 +140,7 @@ class verificacion(View):
         else:
             messages.warning(request, ('La confirmación de la cuenta es invalida, posiblemente porque ya se ha utilizado.'))
             return redirect('/')
+
+class restablecerContasenia(PasswordResetView):
+    template_name = 'usuario/cambiocontrasenia.html'
+    success_url='/'
