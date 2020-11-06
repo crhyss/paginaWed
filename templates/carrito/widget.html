@@ -1,9 +1,10 @@
 {% load cart_tags %}
-
-<table class="table tabel-borderer">
+<div class="container">
+<div class="row">
+<table class="table table-hover table-responsive" id = "tablaCarrito">
     <thead>
         <tr>
-            <th colspan="3" class="text-center">
+            <th colspan="4" class="text-center">
                 Carrito de compras
             </th>
         </tr>
@@ -38,7 +39,7 @@
             {% endfor %}
         {% else %}
         <tr>
-            <td colspan="3">
+            <td colspan="4">
                 <div class="alert alert-danger text-center">
                     No hay productos en el carrito
                 </div>
@@ -48,9 +49,11 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3">
+            <td colspan="4">
                 Total: {{ monto_total_cart|formato_monetario:"$" }}
             </td>
         </tr>
     </tfoot>
 </table>
+</div>
+</div>
