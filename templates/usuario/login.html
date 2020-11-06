@@ -3,8 +3,8 @@
     <form action="" method="POST" class="form-group col-sm-12 col-md-9 mx-auto mt-5" id="formulari">
         {{formulario2}}
         {% csrf_token %}
-        <a href="" style="display: flex; width: 100%; justify-content: center; margin: 10px;">Recuperar contraseña</a>
-        <input class="btn btn-primary" type="submit" value="Iniciar Sesion" style="width: 100%;">
-        <a class="btn btn-primary col-md-6 ml-auto" type="button" href="/accounts/registro" style="min-width: 100%; margin: 5px;">registro</a> 
+        <a href="/accounts/password-reset/" style="display: flex; width: 100%; justify-content: center; margin: 10px;">Recuperar contraseña</a>
+        <input class="btn btn-primary" type="submit" value="Iniciar Sesion">
+        <a class="btn btn-primary col-md-6 ml-auto" type="button" href="/accounts/registro">registro</a> 
     </form>
 {% endblock modal %}

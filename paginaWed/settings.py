@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pagbase',
     'usuarios',
     'carrito',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,5 @@ EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = join(BASE_DIR,'media')
+
+AUTH_USER_MAIL_UNIQUE = True
