@@ -36,7 +36,7 @@ def paginaprincipal(request):
         context
     )
 
-
+@permission_required('view_group')
 def agregarProducto(request):
     lista = Categoria.objects.all()
     formulario = None
@@ -57,8 +57,7 @@ def agregarProducto(request):
         'pagbase/agregar.html',
         context
     )
-
-
+@permission_required('change_producto')
 def modificarProducto(request, id_producto):
     productoRecibido = Producto.objects.get(pk=id_producto)
     lista = Categoria.objects.all()
@@ -81,7 +80,7 @@ def modificarProducto(request, id_producto):
         context
     )
 
-
+@permission_required('view_producto')
 def listarProducto(request):
     productos = Producto.objects.all()
     lista = Categoria.objects.all()
@@ -96,7 +95,7 @@ def listarProducto(request):
         context
     )
 
-
+@permission_required('delete_producto')
 def eliminarProducto(request, id_producto):
     productoEliminado = Producto.objects.get(pk=id_producto)
     productoEliminado.delete()
