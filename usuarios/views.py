@@ -68,7 +68,7 @@ def registro(request):
             asunto = 'Confirmacion de usuario'
             activar_url = 'http://'+dominio+link
             mensaje = 'Hola '+usuarioRegistrado.username + \
-                ' porfavor usa este link de verificacion para confirmar tu cuenta\n' + activar_url
+                ', gracias por registrarte en La tiendita de cristian, porfavor usa este link de verificacion para confirmar tu cuenta\n' + activar_url
             correo = EmailMessage(asunto, mensaje, to=[
                                   formulario.cleaned_data['email']])
             correo.send()
@@ -120,7 +120,6 @@ def perfil(request):
                 context
         )
 
-
 class verificacion(View):
     def get(self, request, uidb64, token):
         try:
@@ -133,8 +132,8 @@ class verificacion(View):
             usuario.is_active = True
             usuario.save()
             login(request, usuario)
-            messages.success(request, ('tu cuenta a sido Validada.'))
+            messages.success(request, ('Tu cuenta ha sido confirmada.'))
             return redirect('/')
         else:
-            messages.warning(request, ('La confirmacion de la cuenta es invalida, posiblemente porque ya se ha utilizado.'))
+            messages.warning(request, ('La confirmación de la cuenta es invalida, posiblemente porque ya se ha utilizado.'))
             return redirect('/')
