@@ -1,10 +1,15 @@
 {% extends 'base/index.html' %}
 {% block main %}
 <main>
-    <p>Nombre: {{user.first_name}}</p>
-    <p>Apellidos: {{user.last_name}}</p>
-    <section class="container">
-        <article style="border: 1px solid black; display: flex; justify-content: center;"> <h3>Listas</h3> </article>
+    <section class = "card col-sm-12 col-md-6 mx-auto mt-5">
+        <div class="card-header">
+            Información de la cuenta
+        </div>
+        <div class="card-body">
+        <p>Nombre: {{user.first_name}}</p>
+        <p>Apellidos: {{user.last_name}}</p>
+        <p>Nombre de usuario: {{user.username}} </p>
+        </div>
     </section>
 </main>
 

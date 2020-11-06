@@ -8,6 +8,14 @@
 
     {% include "base/css.html" %}
     {% block css %}
+    <style>
+        @media screen and (min-width: 0px) and (max-width: 850px){
+            #catalogoProductos{
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
     {% endblock css %}
     <title>{{titulo}}</title>
 </head>
@@ -44,16 +52,7 @@
                     {% endfor %}
                 </ul>
             </article>
-            <section class="form-inline" id='buscarDatos'>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="width: 20%"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                        <path fill-rule="evenodd"
-                            d="M14.53 15.59a8.25 8.25 0 111.06-1.06l5.69 5.69a.75.75 0 11-1.06 1.06l-5.69-5.69zM2.5 9.25a6.75 6.75 0 1111.74 4.547.746.746 0 00-.443.442A6.75 6.75 0 012.5 9.25z">
-                        </path>
-                    </svg></button>
-                <input class="form-control  mr-sm-2" type="search" placeholder="¿Que buscas?" style="width: 75%"
-                    aria-label="Search">
-            </section>
+            
             <section id="DatosP">
                 
                 <a href="{% url 'carrito' %}" type="button">Bolsas <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-basket2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
