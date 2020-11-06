@@ -7,6 +7,7 @@ from .forms import ProductoForm, CategoriaForm
 from usuarios.forms import inicioForm
 from carrito.cart import Cart
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import permission_required
 
 def paginaprincipal(request):
     cart = Cart(request)
@@ -101,7 +102,7 @@ def eliminarProducto(request, id_producto):
     productoEliminado.delete()
     return (redirect('/listar/'))
 
-
+@permission_required('view_producto')
 def administracion(request):
     lista = Categoria.objects.all()
     context = {
@@ -173,7 +174,7 @@ def muestraProducto(request, id_producto):
         context
     )
 
-
+@permission_required('view_producto')
 def categoria(request):
     usuario = AuthenticationForm()
     lista = Categoria.objects.all()
