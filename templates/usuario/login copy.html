@@ -5,5 +5,6 @@
     {% csrf_token %}
     <input class="btn btn-primary col-md-3" type="submit" value="Iniciar Sesion">
     <a class="btn btn-primary col-md-3 ml-auto" type="button" href="/accounts/registro">registro</a> 
+    <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info">Facebook</a>
 </form>
 {% endblock main %}

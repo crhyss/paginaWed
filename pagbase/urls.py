@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path,include
 from .views import paginaprincipal, listarProducto, modificarProducto, agregarProducto, eliminarProducto,administracion,lista,muestraProducto,categoria,carrito
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('',include('pwa.urls')),
     path('', paginaprincipal,name="loby"),
     path('listar/', listarProducto, name="listar"),
     path('agregar/', agregarProducto, name='agregar'),

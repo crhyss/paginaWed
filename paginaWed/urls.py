@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('pagbase.urls')),
     path('accounts/', include('usuarios.urls')),
     path('carrito/', include('carrito.urls')),
-
+    path('social/',include('social_django.urls', namespace='social')),
+    path('',include('pwa.urls')),
 ]

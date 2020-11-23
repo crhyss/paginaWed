@@ -1,15 +1,22 @@
 {% extends 'base/index.html' %}
 {% block main %}
 <main>
-    <section class = "card col-sm-12 col-md-6 mx-auto mt-5">
+    <section class="card col-sm-12 col-md-6 mx-auto mt-5">
         <div class="card-header">
             Información de la cuenta
         </div>
         <div class="card-body">
-        <p>Nombre: {{user.first_name}}</p>
-        <p>Apellidos: {{user.last_name}}</p>
-        <p>Nombre de usuario: {{user.username}} </p>
-        </div>
+            {% if backends.associated %}
+                {% for bkn in backends.associated %}
+                    {% if bkn.provider == 'facebook' %}
+                    <img src="{{bkn.extra_data.picture.data.url}}" alt="">
+                    <p> Nombre: {{user.first_name}}</p>
+                    <p>Apellidos: {{user.last_name}}</p>
+                    <p>Nombre de usuario: {{user.username}} </p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}    
+                </div>
     </section>
 </main>
 

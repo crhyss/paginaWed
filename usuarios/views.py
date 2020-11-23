@@ -16,7 +16,7 @@ from django.views import View
 from pagbase.models import Categoria
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.decorators import login_required
-
+from carrito.cart import Cart
 
 # Create your views here.
 
@@ -106,6 +106,7 @@ def salir(request):
 
 @login_required(login_url='/accounts/login/')
 def perfil(request):
+    cart = Cart(request)
     lista = Categoria.objects.all()
     context = {
     'lista':lista

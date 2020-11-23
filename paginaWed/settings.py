@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'usuarios',
     'carrito',
     'crispy_forms',
+    'social_django',
+    'social.apps.django_app.default',
+    'pwa'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'paginaWed.urls'
+
+AUTHENTICATION_BACKENDS =[
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    
+]
 
 TEMPLATES = [
     {
@@ -69,6 +78,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'carrito.context_processor.monto_total_cart',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -116,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-cl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
@@ -139,9 +150,25 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = 'aquivalacontrasena'
 EMAIL_PORT = 587
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+## EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = join(BASE_DIR,'media')
-
 AUTH_USER_MAIL_UNIQUE = True
+LOGIN_URL = 'iniciarSesion' 
+LOGIN_REDIRECT_URL = 'perfil'
+LOGOUT_URL = 'salir'
+LOGOUT_REDIRECT_URL = 'loby'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '2779822452237843'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'a39654914ead729d015e217c91e614e9'
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'field': 'id,name,email,picture,link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name','name'),
+    ('email','email'),
+    ('picture','picture'),
+    ('link','user_link')
+]
+
+PWA_SERVICE_WORKED_PATH = join(BASE_DIR,'static','sw','serviceworker.js')
