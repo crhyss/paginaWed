@@ -23,7 +23,7 @@
                 <tbody>
                     {%for producto in productos%}
                         <tr id="{{producto.id}}">
-                            <td><img id="imagenbd" src="/media/{{producto.foto}}" alt=""></td>
+                            <td><img id="imagenbd" src="/media/{{producto.foto}}" alt="{{producto.id|producto.nombre}}"></td>
                             <td>{{producto.nombre}}</td>
                             <td>{{producto.marca}}</td>
                             <td>{{producto.modelo}}</td>

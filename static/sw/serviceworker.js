@@ -1,30 +1,39 @@
-const nombreCache = 'pwa-v1';
+const nombreCache = 'pwa-v0';
+var urls = [
+  '/',
+  '/lista/1',
+  'lista/2',
+  '/productos/1',
+  '/productos/2',
+];
+const OFFLINE_CACHE = 'pwa-offline-v0'
+const OFFLINE_URL = ['/offline/'];
 
-self.addEventListener('install', function(event) {
-    console.log("sw se esta instalando...")
+self.addEventListener('install', function (event) {
+  console.log("sw se esta instalando...")
+  event.waitUntil(
+    caches.open(nombreCache)
+      .then(function (cacheEncontrada) {
+        return cacheEncontrada.addAll(urls);
+      })
+  );
+});
+self.addEventListener('install', function (event) {
     event.waitUntil(
-        caches.open(nombreCache)
-            .then(function(cacheEncontrada){
-                return cacheEncontrada.addAll([
-                    '/',
-                    '/lista/1',
-                    'lista/2',
-                    '/productos/1',
-                    '/productos/2'
-                ]);
-            })
-    );
+      caches.open(OFFLINE_CACHE)
+        .then(function (cacheEncontrada) {
+          return cacheEncontrada.addAll(OFFLINE_URL);
+        })
+    ); 
 });
 
-self.addEventListener("fetch",function(event){
-    console.log("El navegador esta pidiendo la pagina..." + event.request);
-    event.respondWith(
-        caches.match(event.request)
-        .then(function(cacheEncontrada){
-            if(cacheEncontrada){
-                return cacheEncontrada
-            }
-            return fetch(event.request)
-        })
-    )
+//   responde a todas las peticiones con el contenido de la red. Si falla intenta responder con el contenido del Cache Storage.
+self.addEventListener("fetch", function(event) {
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match(event.request).then(function(response) {
+        return response || caches.match("/offline/");
+      });
+    })
+  );
 });

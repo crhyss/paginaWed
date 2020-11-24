@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import paginaprincipal, listarProducto, modificarProducto, agregarProducto, eliminarProducto,administracion,lista,muestraProducto,categoria,carrito
+from .views import paginaprincipal, listarProducto, modificarProducto, agregarProducto, eliminarProducto,administracion,lista,muestraProducto,categoria,carrito,offline
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('productos/<int:id_producto>',muestraProducto, name='muestraProducto'),
     path('categoria/',categoria,name='categoria'),
     path('carrito/',carrito,name='carrito'),
+    path('offline/',offline,name='offline')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
