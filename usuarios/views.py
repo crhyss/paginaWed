@@ -102,7 +102,7 @@ def registro(request):
 
 def salir(request):
     logout(request)
-    return redirect(to='/')
+    return redirect(to='/accounts/login')
 
 @login_required(login_url='/accounts/login/')
 def perfil(request):
