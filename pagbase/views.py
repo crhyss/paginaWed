@@ -209,3 +209,13 @@ def carrito(request):
         'pagbase/carrito.html',
         context
     )
+
+def offline(request):
+    context = {
+        'titulo': 'offline',
+    }    
+    return render(
+        request,
+        'offline.html',
+        context
+    )

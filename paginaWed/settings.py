@@ -171,4 +171,4 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('link','user_link')
 ]
 
-PWA_SERVICE_WORKED_PATH = join(BASE_DIR,'static','sw','serviceworker.js')
+PWA_SERVICE_WORKER_PATH = join(BASE_DIR,'static','sw','serviceworker.js')
