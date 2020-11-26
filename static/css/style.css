@@ -29,6 +29,7 @@ p {
     justify-content: space-between;
     min-height: 120vh;
 }
+
 /*barra superior*/
 #logoWeb{
     height: 100px;
@@ -111,8 +112,6 @@ footer{
 }
 #menuPrincipal{
     width: 20%;
-    padding-left: 30px;
-
 }
 #barra-inferior{
     display: flex;
@@ -127,7 +126,7 @@ footer{
 #DatosP{
     display: flex;
     align-items: center;
-    width: 45%;
+    width: 70%;
     place-content: space-around;
 }
 #productos{
@@ -271,8 +270,32 @@ footer{
     padding: 50px;
 }
 
+a:hover{
+    backgr
+}
+.modalfondo{
+    background-repeat: round;
+    background-image: url(https://as01.epimg.net/meristation/imagenes/2020/05/22/betech/1590184541_747225_1590184613_noticia_normal_recorte1.jpg);
+}
+.mf{
+    background-repeat: round;
+    background-image: url(https://img.freepik.com/foto-gratis/hacker-mascara-anonymous_23-2147985387.jpg?size=626&ext=jpg);
+}
 /*Media query para la versión móvil*/
-@media screen and (min-width: 0px) and (max-width: 850px){
+@media screen and (min-width: 0px) and (max-width: 890px){
+    .detprod{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .mf{
+        background-repeat: round;
+        background-image: url(https://img.freepik.com/foto-gratis/hacker-mascara-anonymous_23-2147985387.jpg?size=626&ext=jpg);
+    }
+    .modalfondo{
+        background-repeat: round;
+        background-image: url(https://as01.epimg.net/meristation/imagenes/2020/05/22/betech/1590184541_747225_1590184613_noticia_normal_recorte1.jpg);
+    }
     #barra-superior {
         display: none !important;
     }
@@ -367,5 +390,13 @@ footer{
         padding-right: 5%;
         padding-left: 30px;
     
+    }
+    #tabla-carrito{
+        border: 1px solid black;
+        border-radius: 20px;
+        margin:10px;
+    }
+    #DatosP{
+        width: 70%;
     }
 }

@@ -4,11 +4,11 @@
 
 
 {% block main %}
-<main class="container col-sm-12 col-md-6 mx-auto mt-5" style="display: flex; margin: 0 !important; min-width: 100%;">
+<main class="container col-sm-12 col-md-6 mx-auto mt-5" style="display: flex; margin: 0 !important; min-width: 100%; padding-top: 50px;">
   <section id = "catalogoProductos" class="card-group col-sm-12 col-md-6 mx-auto mt-5" style="display: flex; min-width: 100%; margin: 0 !important; justify-content: center;">
     {% for producto in productos %}
     <div class="card" style="max-width: 250px; margin: 10px" id="{{producto.id}}">
-      <img src="/media/{{producto.foto}}" class="img-thumbnail" alt="{{producto.nombre}}">
+      <img src="/media/{{producto.foto}}" style=" width: 300px; height: 200px;" class="img-thumbnail" alt="{{producto.nombre}}">
       <div class="card-body">
 
           <h5 class="card-title"> {{producto.nombre}}</h5>

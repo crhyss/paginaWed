@@ -1,31 +1,52 @@
 {% extends 'base/index.html' %}
+{% load static %}
 {% block main %}
-<main class="container" style="display: flex; flex-wrap: wrap; align-items: center;">
-    <section class="container" style="width: 240px;">
-        <img src="/media/{{producto.foto}}" class="m-2" alt="" style="width: 200px; height: auto;">
-        <h3 class = "text-center">{{producto.nombre}}</h3>
-    </section>
-    <section>
-        <nav class = "text-center">
-            <h3> Información del producto </h3>
-            <p>Marca:{{producto.marca}}</p>
-            <p>Precio: ${{producto.precio}}</p>
-            <p>Peso: {{producto.peso}}Kg</p>
-            <p>Dimension: {{producto.dimension}}</p>
-            <p>Detalle: {{producto.detalle}}</p>
-            <a href="{% url 'cart:agregarproducto' producto_id=producto.id %}" class="btn btn-primary">Agregar al Carrito</a>
-        </nav>
-    </section>
+<main class="container" style="padding-top: 50px;">
+    <article class="row row-cols-1 row-cols-sm-2 row-cols-md-12 detprod ">
+        <section class="text-center align-self-center border-right " >
+            <img src="/media/{{producto.foto}}" class="m-2 sm-12 border-secondary border border-primary" alt=""
+                style="width: 300px; height: 300px;">
+        </section>
+            <nav class="row" style="align-content: space-evenly; background-color: #fafafa;">
+                <h3 class="col-12 text-center"> Información del producto </h3>
+                <p class="col-6" style="padding-left: 30px;">Nombre: {{producto.nombre}}</p>
+                <p class="col-6">Marca: {{producto.marca}}</p>
+                <p class="col-6" style="padding-left: 30px;">Precio: ${{producto.precio}}</p>
+                <p class="col-6">Peso: {{producto.peso}}Kg</p>
+                <p class="col-6" style="padding-left: 30px;">Dimension: {{producto.dimension}}</p>
+                <p class="col-6">Detalle: {{producto.detalle}}</p>
+                <p class="text-center col-12">
+                    <a href="{% url 'cart:agregarproducto' producto_id=producto.id %}" class="btn btn-primary col-8 ">Agregar al
+                        Carrito</a>
+                </p>
+                
+            </nav>
+    </article>
 </main>
 
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-tittle">Comentarios</h2>
+    </div>
+    <form action="">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="comentario">Ingrese su comentario...</label>
+                        <textarea name="comentario" id="comentario" required class = "form-control" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Comentar" class = "btn btn-success btn-block">
+        </div>
+    </form>
+</div>
 <section class="container">
-    <h4 class="text-center" style="background-color: grey; color: azure;">Comentarios</h4>
-    <textarea aria-valuetext="200px" style="width: 100%;"></textarea>
-    <button type="submit" class="btn btn-success green rounded-pill"> Comentar</button>
-    
+
 </section>
-<section class="container">
-    
-</section>
+
 
 {% endblock %}

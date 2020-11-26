@@ -4,8 +4,8 @@
         {{formulario2}}
         {% csrf_token %}
         <a href="/accounts/password-reset/" style="display: flex; width: 100%; justify-content: center; margin: 10px;">Recuperar contraseña</a>
-        <input class="btn btn-primary" type="submit" value="Iniciar Sesion">
-        <a class="btn btn-primary col-md-6 ml-auto" type="button" href="/accounts/registro">registro</a> 
-        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info">Facebook</a>
+        <input class="btn btn-primary" type="submit" value="Iniciar Sesion" style="width: 100%; margin:10px;">
+        <a class="btn btn-primary col-md-6 ml-auto" type="button" href="/accounts/registro" style="margin: 10px; max-width:260px;">Registro</a> 
+        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info" style="max-width:260px; margin:10px;">Facebook</a>
     </form>
 {% endblock modal %}

@@ -3,8 +3,8 @@
 <form action="" method="POST" class="form-group col-sm-12 col-md-8 mx-auto mt-5" id="formulari">
     {{formulario2}}
     {% csrf_token %}
-    <input class="btn btn-primary col-md-3" type="submit" value="Iniciar Sesion">
-    <a class="btn btn-primary col-md-3 ml-auto" type="button" href="/accounts/registro">registro</a> 
-    <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info">Facebook</a>
+    <input class="btn btn-primary col-md-3" type="submit" value="Iniciar Sesion" style="margin:10px;">
+    <a class="btn btn-primary col-md-3 ml-auto" type="button" href="/accounts/registro" style="margin:10px; max-width:310px;">Registro</a> 
+    <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info" style="margin:10px;">Facebook</a>
 </form>
 {% endblock main %}
