@@ -16,8 +16,3 @@ class Producto(models.Model):
     detalle = models.TextField(max_length=300)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
-class Comentario(models.Model):
-    comentario = models.TextField(blank=False)
-    fecha = models.DateTimeField(auto_now=True)
-    activo = models.SmallIntegerField(default=1)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)

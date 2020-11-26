@@ -64,6 +64,7 @@ def registro(request):
             usuarioRegistrado = formulario.save(commit=False)   
             usuarioRegistrado.is_active = False
             usuarioRegistrado.save()
+            login(request, usuarioRegistrado, backend='django.contrib.auth.backends.ModelBackend')
             uidb64 = urlsafe_base64_encode(force_bytes(usuarioRegistrado.pk))
             dominio = get_current_site(request).domain
             link = reverse('activacion', kwargs={
@@ -77,7 +78,7 @@ def registro(request):
                                   formulario.cleaned_data['email']])
             correo.send()
             if usuarioRegistrado is not None:
-                login(request, usuarioRegistrado)
+                login(request, usuarioRegistrado,backend='django.contrib.auth.backends.ModelBackend')
                 return redirect('/')
     if request.method == 'POST':
         formulario2 = AuthenticationForm(data=request.POST)
@@ -125,6 +126,7 @@ def perfil(request):
                 context
         )
 
+
 class verificacion(View):
     def get(self, request, uidb64, token):
         try:
@@ -136,7 +138,7 @@ class verificacion(View):
         if usuario is not None and token_generador.check_token(usuario, token):
             usuario.is_active = True
             usuario.save()
-            login(request, usuario)
+            login(request, usuario,backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, ('Tu cuenta ha sido confirmada.'))
             return redirect('/')
         else:

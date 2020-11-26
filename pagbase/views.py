@@ -200,9 +200,11 @@ def categoria(request):
     )
 def carrito(request):
     lista = Categoria.objects.all()
+    usuario = AuthenticationForm()
     context = {
         'titulo': 'Carrito',
         'lista': lista,
+        'usuario': usuario,
     }    
     return render(
         request,
@@ -211,8 +213,12 @@ def carrito(request):
     )
 
 def offline(request):
+    lista = Categoria.objects.all()
+    usuario = AuthenticationForm()
     context = {
         'titulo': 'offline',
+        'lista': lista,
+        'usuario': usuario,
     }    
     return render(
         request,

@@ -15,6 +15,7 @@ urlpatterns = [
     path('categoria/',categoria,name='categoria'),
     path('carrito/',carrito,name='carrito'),
     path('offline/',offline,name='offline')
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
