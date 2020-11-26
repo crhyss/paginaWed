@@ -192,6 +192,8 @@ footer{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 90%;
+    margin: inherit;
 
 }
 #imperdibles article:nth-child(2){
@@ -250,7 +252,7 @@ footer{
 
 #imperdibles{
     margin: 10px !important;
-
+    width: 100%;
 }
 
 .form_control {
@@ -270,9 +272,6 @@ footer{
     padding: 50px;
 }
 
-a:hover{
-    backgr
-}
 .modalfondo{
     background-repeat: round;
     background-image: url(https://as01.epimg.net/meristation/imagenes/2020/05/22/betech/1590184541_747225_1590184613_noticia_normal_recorte1.jpg);

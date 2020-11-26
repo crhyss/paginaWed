@@ -131,7 +131,7 @@ def lista(request, id):
                 login(request, usuarioLogeado)
                 return redirect('/')
         
-    paginator = Paginator(productos, 3)
+    paginator = Paginator(productos, 6)
     page = request.GET.get('page')
     productos = paginator.get_page(page)
 
