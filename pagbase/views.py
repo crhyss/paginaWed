@@ -266,3 +266,13 @@ def eliminarCategoria(request, id):
     categoria = Categoria.objects.get(pk = id)
     categoria.delete()
     return redirect('/listacategorias/')
+
+def tiendas(request):
+    context = {
+        'titulo': 'tiendas',
+    }    
+    return render(
+        request,
+        'pagbase/tienda.html',
+        context
+    )

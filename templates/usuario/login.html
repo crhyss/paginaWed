@@ -1,11 +1,14 @@
-
 {% block modal %}
-    <form action="" method="POST" class="form-group col-sm-12 col-md-9 mx-auto mt-5" id="formulari">
-        {{formulario2}}
-        {% csrf_token %}
-        <a href="/accounts/password-reset/" style="display: flex; width: 100%; justify-content: center; margin: 10px;">Recuperar contraseña</a>
-        <input class="btn btn-primary" type="submit" value="Iniciar Sesion" style="width: 100%; margin:10px;">
-        <a class="btn btn-primary col-md-6 ml-auto" type="button" href="/accounts/registro" style="margin: 10px; max-width:260px;">Registro</a> 
-        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info" style="max-width:260px; margin:10px;">Facebook</a>
-    </form>
+<form action="" method="POST" class="form-group col-sm-12 col-md-9 mx-auto mt-5" id="formulari">
+    {{formulario2}}
+    {% csrf_token %}
+    <a href="/accounts/password-reset/"
+        style="display: flex; width: 100%; justify-content: center; margin: 10px;">Recuperar contraseña</a>
+    <section style="display: grid;">
+        <input class="btn btn-primary" type="submit" value="Iniciar Sesion" style="margin-bottom: 3%;">
+        <a class="btn btn-primary  " type="button" href="/accounts/registro" style="margin-bottom: 3%;" >Registro</a>
+        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-info" style="margin-bottom: 3%;" >Facebook</a>
+    </section>
+
+</form>
 {% endblock modal %}

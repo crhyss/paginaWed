@@ -7,28 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% progressive_web_app_meta %}
     {% include "base/css.html" %}
-    {% block css %}
-    <style>
-        @media screen and (min-width: 0px) and (max-width: 850px){
-            #catalogoProductos{
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        @media screen and (min-width: 750px) {
-            #tablaCarrito{
-                display: inline-table;
-            }
-            
-        }
-    </style>
-    {% endblock css %}
     <title>{{titulo}}</title>
 </head>
 
 <body id = "body">
     {% block header %}
-    <header>
+    <header style="width: 100%;">
         <picture>
             <a href="/">
                 <img id="logoWeb"  alt="bandera" src="https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg">
@@ -45,7 +29,7 @@
         </section>
         <section id="barra-inferior">
             <article class="dropdown" id='menuPrincipal'>
-                <button class="btn btn-secondary " type="button" id="dropdownMenu2" data-toggle="dropdown"
+                <button class="btn btn-secondary " aria-label="Center Align" type="button" id="dropdownMenu2" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16" width="16" height="16">
                         <path fill-rule="evenodd"
@@ -71,6 +55,7 @@
                 {% else %}
                 <a type="button" class="btn text-primary" data-toggle="modal" data-target="#exampleModal">Mi cuenta</a>
                 {% endif %}
+                <a href="{% url 'tiendas' %}" class="waves-effect waves-light btn text-primary " >Mapa</a>
             </section>
         </section>
         <section class="sep" style="max-height: 100%;">

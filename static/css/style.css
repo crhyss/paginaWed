@@ -3,6 +3,20 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+@media screen and (min-width: 0px) and (max-width: 850px){
+    #catalogoProductos{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 750px) {
+    #tablaCarrito{
+        display: inline-table;
+    }
+    
+}
+
 .datos-producto{
     margin: 10%;
 }
@@ -14,8 +28,7 @@ p {
     margin-bottom: 0 !important;
 }
 #formulari{
-    flex-wrap: wrap;
-    display: flex;
+    display: grid;
 }
 .formulario{
     margin: 10%;
@@ -25,8 +38,7 @@ p {
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-flow: wrap;
     min-height: 120vh;
 }
 
@@ -90,14 +102,18 @@ footer{
     width: 100%;
 }
 
-
+#map { 
+    height: 360px; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5% ;
+ }
 
 .fh1,.fh2 {
     width: 50%;
     text-align: -webkit-center;
 }
 .fh3{
-    font-size: x-small;
     width: 100%;
     text-align: -webkit-center;
 }
@@ -251,8 +267,8 @@ footer{
 }
 
 #imperdibles{
-    margin: 10px !important;
-    width: 100%;
+    margin: 1% !important;
+    width: 102%;
 }
 
 .form_control {
@@ -263,8 +279,7 @@ footer{
     margin-bottom: 20px;
 }
 #card-footer-moda{
-    display: flex;
-    justify-content: center;
+    display: grid;
 }
 #card-admin{
     display: flex;

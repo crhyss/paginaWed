@@ -172,3 +172,19 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
 ]
 
 PWA_SERVICE_WORKER_PATH = join(BASE_DIR,'static','sw','serviceworker.js')
+
+# datos del manifest
+PWA_APP_NAME = 'La tiendita del Cristian'
+PWA_APP_DESCRIPTION = 'una tienda donde puedes comprar todo lo que sueñe, quieres ser cosplayer pues lo tenemos, quiere un disfras de furro pues lo tenemos todo eso y mas aquí'
+PWA_APP_THEME_COLOR = '#5DD8DF'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'fullscreen'
+PWA_APP_SCOPE =  '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [ { 'src': '/media/fotos/StoreLogo.scale-400.png', 'sizes': '160x160' } ]
+PWA_APP_ICONS_APPLE = [ { 'src': '/media/fotos/palta.jpg', 'sizes': '160x160' } ]
+PWA_APP_SPLASH_SCREEN = [ { 'src': '/media/fotos/StoreLogo.scale-150.png', 'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' } ] 
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'es-CL'
