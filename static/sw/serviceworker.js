@@ -2,9 +2,8 @@ const nombreCache = 'pwa-v0';
 var urls = [
   '/',
   '/lista/1',
-  'lista/2',
   '/productos/1',
-  '/productos/2',
+
 ];
 const OFFLINE_CACHE = 'pwa-offline-v0'
 const OFFLINE_URL = ['/offline/'];
@@ -37,3 +36,5 @@ self.addEventListener("fetch", function(event) {
     })
   );
 });
+
+

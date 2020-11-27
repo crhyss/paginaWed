@@ -272,13 +272,9 @@ footer{
     padding: 50px;
 }
 
-.modalfondo{
-    background-repeat: round;
-    background-image: url(https://as01.epimg.net/meristation/imagenes/2020/05/22/betech/1590184541_747225_1590184613_noticia_normal_recorte1.jpg);
-}
 .mf{
     background-repeat: round;
-    background-image: url(https://img.freepik.com/foto-gratis/hacker-mascara-anonymous_23-2147985387.jpg?size=626&ext=jpg);
+    background-image: url(https://previews.123rf.com/images/anueing/anueing1509/anueing150900002/44554515-vector-placa-de-circuito-c%C3%ADrculo-sobre-fondo-blanco.jpg);
 }
 /*Media query para la versión móvil*/
 @media screen and (min-width: 0px) and (max-width: 890px){
@@ -287,14 +283,7 @@ footer{
         flex-flow: column;
         align-items: center;
     }
-    .mf{
-        background-repeat: round;
-        background-image: url(https://img.freepik.com/foto-gratis/hacker-mascara-anonymous_23-2147985387.jpg?size=626&ext=jpg);
-    }
-    .modalfondo{
-        background-repeat: round;
-        background-image: url(https://as01.epimg.net/meristation/imagenes/2020/05/22/betech/1590184541_747225_1590184613_noticia_normal_recorte1.jpg);
-    }
+
     #barra-superior {
         display: none !important;
     }

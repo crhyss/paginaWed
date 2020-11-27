@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login, logout, authenticate
 from pagbase.urls import paginaprincipal
-from .forms import inicioForm
+from .forms import inicioForm, GeneroForm
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage, send_mail
@@ -17,6 +17,7 @@ from pagbase.models import Categoria
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.decorators import login_required
 from carrito.cart import Cart
+from .models import Usuario, Genero
 
 # Create your views here.
 
@@ -148,3 +149,84 @@ class verificacion(View):
 class restablecerContasenia(PasswordResetView):
     template_name = 'usuario/cambiocontrasenia.html'
     success_url='/'
+
+def listarUsuarios(request):
+    usuarios = Usuario.objects.all()
+    lista = Categoria.objects.all()
+    context = {
+        'titulo':'Lista de usuarios',
+        'usuarios': usuarios,
+        'lista': lista
+    }
+    return render(
+        request,
+        'usuario/listaUsuarios.html',
+        context
+    )
+
+def eliminarUsuario(request,id):
+    usuario = Usuario.objects.get(pk = id)
+    usuario.delete()
+    return redirect('/listaruser/')
+
+def agregarGenero(request):
+    lista = Categoria.objects.all()
+    formulario = None
+    if request.method == 'POST':
+        formulario = GeneroForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/accounts/listargenero/')
+    else:
+        formulario = GeneroForm()
+    context = {
+        'titulo': 'Lista de generos',
+        'formulario':formulario,
+        'lista': lista
+    }
+    return render (
+        request,
+        'usuario/agregarGenero.html',
+        context
+    )
+
+def listarGeneros(request):
+    genero = Genero.objects.all()
+    lista = Categoria.objects.all()
+    context = {
+        'titulo':'Lista de géneros',
+        'genero': genero,
+        'lista': lista
+    }
+    return render(
+        request,
+        'usuario/listarGenero.html',
+        context
+    )
+
+def modificarGenero(request, id):
+    genero = Genero.objects.get(pk=id)
+    lista = Categoria.objects.all()
+    formulario = None
+    if request.method == 'POST':
+        formulario = GeneroForm(request.POST, instance=genero)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/accounts/listargenero/')
+    else:
+        formulario = GeneroForm(instance=genero)
+    context = {
+        'titulo': 'Modificar Género',
+        'formulario': formulario,
+        'lista': lista,
+    }
+    return render(
+        request,
+        'usuario/modificarGenero.html',
+        context
+    )
+
+def eliminarGenero(request, id):
+    genero = Genero.objects.get(pk=id)
+    genero.delete()
+    return (redirect('/accounts/listargenero/'))

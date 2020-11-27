@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario
+from .models import Usuario, Genero
 from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 from django.contrib.auth.models import User
 
@@ -28,3 +28,12 @@ class restablecerContraseniaForm(PasswordResetForm):
         'class':'form-control',
     }))
     
+
+class GeneroForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(GeneroForm,self).__init__(*args, **kwargs)
+        agregarClaseFormControl(self.visible_fields())
+
+    class Meta:
+        model = Genero
+        fields = ['genero']

@@ -225,3 +225,44 @@ def offline(request):
         'offline.html',
         context
     )
+
+def listarCategorias(request):
+    categorias = Categoria.objects.all()
+    lista = Categoria.objects.all()
+    context = {
+        'titulo':'Categorías',
+        'categorias': categorias,
+        'lista': lista
+    }
+    return render(
+        request,
+        'pagbase/listarCategorias.html',
+        context
+    )
+
+def modificarCategoria(request, id):
+    categoria = Categoria.objects.get(pk = id)
+    lista = Categoria.objects.all()
+    formulario = None
+    if request.method == 'POST':
+        formulario = CategoriaForm(request.POST, instance = categoria)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/listacategorias/')
+    else:
+        formulario = CategoriaForm(instance = categoria)
+    context = {
+        'titulo': 'Modificar categoría',
+        'formulario': formulario,
+        'lista': lista
+    }
+    return render(
+        request,
+        'pagbase/modificarCategoria.html',
+        context
+    )
+
+def eliminarCategoria(request, id):
+    categoria = Categoria.objects.get(pk = id)
+    categoria.delete()
+    return redirect('/listacategorias/')
