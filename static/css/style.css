@@ -34,12 +34,12 @@ p {
     margin: 10%;
 }
 #body{
-    background-image: url(https://tunuevavitrina.cl/wp-content/uploads/2018/07/fondo-slide-1_2_0.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
     flex-flow: wrap;
     min-height: 120vh;
+    background-color: rgb(170, 155, 155);
 }
 
 /*barra superior*/
@@ -50,7 +50,7 @@ p {
     position: absolute;
 }
 #barra-superior,superior{
-    background-color: black;
+    background-color: rgb(97, 96, 96);
     color: white;
 }
 .flex{
@@ -93,6 +93,13 @@ p {
 }
 #imagenbd{
     width: 200px;
+}
+.principal{
+    width: 100%;
+}
+.imagen1{
+    width: 100%;
+    height: 628px;
 }
 footer{
     background-color: black;
@@ -203,72 +210,73 @@ footer{
 }
 
 #imperdibles article:nth-child(n){
-    background-image: url("https://i.pinimg.com/564x/09/a2/d6/09a2d6bd7deed65085e3d808ea45c458.jpg");
+    background-image: url("https://elegifruta.com.ar/onepage/wp-content/uploads/2017/07/manzana_roja.jpg");
     height: 350px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 90%;
+    background-size: contain;
+    background-position: 100%;
     margin: inherit;
+    border: solid;
 
 }
 #imperdibles article:nth-child(2){
-    background-image: url("https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg");
+    background-image: url("https://5aldia.cl/wp-content/uploads/2018/03/durazno.jpg");
 
 
 }
 #imperdibles article:nth-child(3){
-    background-image: url("https://i.pinimg.com/236x/4d/d0/3c/4dd03cd379a01ceaa470982645fe802e.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/412278-750-750?width=750&height=750&aspect=true");
 
 
 }
 #imperdibles article:nth-child(4){
-    background-image: url("https://i.pinimg.com/564x/f8/ff/2a/f8ff2aecc6e4cc0e421542285e9c9786.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/306285-750-750?width=750&height=750&aspect=true");
 
 
 }
 #imperdibles article:nth-child(5){
-    background-image: url("https://www.dhresource.com/0x0/f2/albu/g9/M01/E7/F7/rBVaWF2ET8CASNr1AAGo3mJLPAE861.jpg/kochou-shinobu-cosplay-costumes-japanese.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/503558-750-750?width=750&height=750&aspect=true");
 
 
 }
 #imperdibles article:nth-child(6){
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSASAOwbMmPp6kogM9bjTLh0P3cZC8dtGLeDw&usqp=CAU");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/441934-360-360?width=360&height=360&aspect=true");
 
 
 }
 #imperdibles article:nth-child(7){
-    background-image: url("https://www.playerone.vg/wp-content/uploads/2020/10/Genshin-impact-2.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/452749-750-750?width=750&height=750&aspect=true");
 
 }
 #imperdibles article:nth-child(8){
-    background-image: url("https://cdn.tigthai.com/imguploads/202010/20/0281214001603200277571_703.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/453064-750-750?width=750&height=750&aspect=true");
 
 
 }
 #imperdibles article:nth-child(9){
-    background-image: url("data:image/jpeg;base64,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");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/453001-750-750?width=750&height=750&aspect=true");
  
 
 }
 #imperdibles article:nth-child(10){
-    background-image: url("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/59a6bc3d5bafe87f0db3d708/gato-atigrado-triste_0.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/430760-750-750?width=750&height=750&aspect=true");
 
 
 }
 #imperdibles article:nth-child(11){
-    background-image: url("https://estaticos.muyinteresante.es/media/cache/1000x_thumb/uploads/images/gallery/59a6bc3d5bafe87f0db3d708/gato-gris-maullando.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/470795-360-360?width=360&height=360&aspect=true");
 
 
 }
 #imperdibles article:nth-child(12){
-    background-image: url("https://i.pinimg.com/564x/00/40/8e/00408e0124295dc94dbab93d7c64ccb2.jpg");
+    background-image: url("https://jumbo.vtexassets.com/arquivos/ids/430283-750-750?width=750&height=750&aspect=true");
 
 }
 
 #imperdibles{
     margin: 1% !important;
-    width: 102%;
+    width: 100%;
 }
 
 .form_control {
